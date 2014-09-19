@@ -1,0 +1,7 @@
+
+description = ''
+dependencies {
+    compile group: 'org.springframework', name: 'spring-tx', version:'3.2.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version:'3.2.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-test', version:'3.2.4.RELEASE'
+}

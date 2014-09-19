@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.alpharogroup</groupId>
+	<artifactId>application.db.modules</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>address.book</module>
+		<module>dao.api</module>
+		<module>db.resource.bundles</module>
+		<module>message.system</module>
+		<module>payment.module</module>
+		<module>rating.system</module>
+		<module>resource.system</module>
+		<module>user.management</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<slf4j-api.version>1.6.4</slf4j-api.version>
+		<slf4j-log4j12.version>1.6.4</slf4j-log4j12.version>
+		<log4j.version>1.2.16</log4j.version>
+		<testng.version>6.8.8</testng.version>
+		<lombok.version>1.14.4</lombok.version>
+		<!-- PROJECT DB MODULES versions -->
+		<address.book.version>1.0.1</address.book.version>
+		<dao.api.version>1.0.4</dao.api.version>
+		<db.resource.bundles.version>1.0.0</db.resource.bundles.version>
+		<message.system.version>1.0.6</message.system.version>
+		<payment.module.version>1.0.0</payment.module.version>
+		<rating.system.version>1.0.0</rating.system.version>
+		<resource.system.version>1.0.0</resource.system.version>
+		<user.management.version>1.0.4</user.management.version>
+		<!-- MAVEN PLUGIN versions -->
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<maven-compiler-plugin.source.version>1.7</maven-compiler-plugin.source.version>
+		<maven-compiler-plugin.target.version>1.7</maven-compiler-plugin.target.version>
+		<maven-compiler-plugin.compilerVersion>1.7</maven-compiler-plugin.compilerVersion>
+		<maven-compiler-plugin.encoding>UTF-8</maven-compiler-plugin.encoding>
+		<maven-compiler-plugin.optimize>true</maven-compiler-plugin.optimize>
+		<maven-compiler-plugin.showWarnings>true</maven-compiler-plugin.showWarnings>
+		<maven-compiler-plugin.debug>true</maven-compiler-plugin.debug>
+		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+		<hibernate3-maven-plugin.version>2.2</hibernate3-maven-plugin.version>
+		<sql-maven-plugin.version>1.5</sql-maven-plugin.version>
+		<m2e.lifecycle-mapping.version>1.0.0</m2e.lifecycle-mapping.version>
+		<exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
+		<properties-maven-plugin.version>1.0-alpha-2</properties-maven-plugin.version>
+		<!-- HIBERNATE versions -->
+		<hibernate.version>4.2.7.Final</hibernate.version>
+		<cglib.version>2.2.2</cglib.version>
+		<!-- CONNECTION POOL versions -->
+		<tomcat-dbcp.version>7.0.54</tomcat-dbcp.version>
+		<bonecp.version>0.7.1.RELEASE</bonecp.version>
+		<!-- SPRING versions -->
+		<spring.version>3.2.5.RELEASE</spring.version>
+		<!-- DB DRIVER version -->
+		<postgresql.version>9.2-1003-jdbc4</postgresql.version>
+		<!-- JAULP versions -->
+		<jaulp.core.version>3.8.0</jaulp.core.version>
+		<jaulp.collections.version>${jaulp.core.version}</jaulp.collections.version>
+		<jaulp.file.version>${jaulp.core.version}</jaulp.file.version>
+		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
+		<jaulp.lang.version>${jaulp.core.version}</jaulp.lang.version>
+		<jaulp.xml.version>${jaulp.core.version}</jaulp.xml.version>
+		<jaulp.random.version>${jaulp.core.version}</jaulp.random.version>
+		<jaulp.email.version>${jaulp.core.version}</jaulp.email.version>
+		<jaulp.xml.version>${jaulp.core.version}</jaulp.xml.version>
+		<jaulp.security.version>${jaulp.core.version}</jaulp.security.version>
+		<jaulp.swing.version>${jaulp.core.version}</jaulp.swing.version>
+		<mystic.crypt.version>${jaulp.core.version}</mystic.crypt.version>
+		<jaulp.time.version>${jaulp.core.version}</jaulp.time.version>
+		<!-- JGEOHASH version -->
+		<jgeohash.version>1.4.4</jgeohash.version>
+		<!-- EXTERNAL LIBRARIES versions -->
+		<commons-lang.version>2.4</commons-lang.version>
+		<commons-io.version>2.4</commons-io.version>
+		<commons-email.version>1.3.2</commons-email.version>
+		<velocity.version>1.7</velocity.version>
+		<p6spy.version>1.3</p6spy.version>
+		<!-- EXTERNAL LIBRARIES versions -->
+		<subethasmtp.version>3.1.7</subethasmtp.version>
+	</properties>
+
+
+	<dependencyManagement>
+
+		<dependencies>
+			<!-- SPRING DEPENDENCIES -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- HIBERNATE DEPENDENCIES -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>${cglib.version}</version>
+			</dependency>
+			<!-- CONNECTION POOL DEPENDENCIES -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-c3p0</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-dbcp</artifactId>
+				<version>${tomcat-dbcp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.jolbox</groupId>
+				<artifactId>bonecp</artifactId>
+				<version>${bonecp.version}</version>
+			</dependency>
+			<!-- DB DRIVER DEPENDENCIES -->
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+			</dependency>
+			<!-- EXTERNAL LIBRARIES versions -->
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${gson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>${testng.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-email</artifactId>
+				<version>${commons-email.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>p6spy</groupId>
+				<artifactId>p6spy</artifactId>
+				<version>${p6spy.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+				<version>${velocity.version}</version>
+			</dependency>
+			<!-- DB-MODULES DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>message.system</artifactId>
+				<version>${message.system.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>db.resource.bundles</artifactId>
+				<version>${db.resource.bundles.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>address.book</artifactId>
+				<version>${address.book.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>dao.api</artifactId>
+				<version>${dao.api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>user.management</artifactId>
+				<version>${user.management.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>resource.system</artifactId>
+				<version>${resource.system.version}</version>
+			</dependency>
+			<!-- JAULP DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.collections</artifactId>
+				<version>${jaulp.collections.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.email</artifactId>
+				<version>${jaulp.email.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.file</artifactId>
+				<version>${jaulp.file.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.swing</artifactId>
+				<version>${jaulp.swing.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.xml</artifactId>
+				<version>${jaulp.xml.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.random</artifactId>
+				<version>${jaulp.random.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.security</artifactId>
+				<version>${jaulp.security.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>mystic.crypt</artifactId>
+				<version>${mystic.crypt.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.time</artifactId>
+				<version>${jaulp.time.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.lang</artifactId>
+				<version>${jaulp.lang.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.generic.tree</artifactId>
+				<version>${jaulp.generic.tree.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jgeohash</artifactId>
+				<version>${jgeohash.version}</version>
+			</dependency>
+			<!-- LOGGING DEPENDENCIES - LOG4J -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j-api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j-log4j12.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<!-- LOMBOK DEPENDENCIES -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+
+			<!-- JAVA-MAIL TEST DEPENDENCIES -->
+			<dependency>
+				<groupId>org.subethamail</groupId>
+				<artifactId>subethasmtp</artifactId>
+				<version>${subethasmtp.version}</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- LOGGING DEPENDENCIES - LOG4J -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+		</dependency>
+		<!-- LOMBOK DEPENDENCIES -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<!-- SPRING DEPENDENCIES -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<!-- HIBERNATE DEPENDENCIES -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.file</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.collections</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<pluginManagement>
+
+			<plugins>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>properties-maven-plugin</artifactId>
+					<version>${properties-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<phase>initialize</phase>
+							<goals>
+								<goal>read-project-properties</goal>
+							</goals>
+							<configuration>
+								<files>
+									<file>src/main/resources/jdbc.properties</file>
+								</files>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<inherited>true</inherited>
+					<!-- NOTE: We don't need a groupId specification because the group is 
+						org.apache.maven.plugins ...which is assumed by default. -->
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${maven-compiler-plugin.source.version}</source>
+						<target>${maven-compiler-plugin.target.version}</target>
+						<compilerVersion>${maven-compiler-plugin.compilerVersion}</compilerVersion>
+						<encoding>${maven-compiler-plugin.encoding}</encoding>
+						<optimize>${maven-compiler-plugin.optimize}</optimize>
+						<showWarnings>${maven-compiler-plugin.showWarnings}</showWarnings>
+						<debug>${maven-compiler-plugin.debug}</debug>
+					</configuration>
+				</plugin>
+				<!-- Configuring Maven Source Plugin: To attach source artifacts to your 
+					build we execute the source:jar goal from the source plugin during the package 
+					phase. -->
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- Configuring Maven Javadoc Plugin: To attach javadoc artifacts to 
+					your build we execute the javadoc:jar goal from the javadoc plugin. -->
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<configuration>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+					</configuration>
+					<executions>
+						<execution>
+							<id>make-assembly</id>
+							<!-- this is used for inheritance merges -->
+							<phase>package</phase>
+							<!-- append to the packaging phase. -->
+							<goals>
+								<goal>attached</goal>
+								<!-- goals == mojos -->
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>${maven-eclipse-plugin.version}</version>
+					<configuration>
+						<additionalBuildcommands>
+							<buildcommand>org.eclipse.m2e.core.maven2Builder</buildcommand>
+						</additionalBuildcommands>
+						<additionalProjectnatures>
+							<projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
+							<projectnature>org.springsource.ide.eclipse.gradle.core.nature</projectnature>
+						</additionalProjectnatures>
+						<downloadSources>true</downloadSources>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>hibernate3-maven-plugin</artifactId>
+					<version>${hibernate3-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<phase>process-classes</phase>
+							<goals>
+								<goal>hbm2ddl</goal>
+							</goals>
+						</execution>
+					</executions>
+					<dependencies>
+						<!-- JDBC DEPENDENCIES -->
+						<dependency>
+							<groupId>org.postgresql</groupId>
+							<artifactId>postgresql</artifactId>
+							<version>${postgresql.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sql-maven-plugin</artifactId>
+					<version>${sql-maven-plugin.version}</version>
+					<!--jar file that has the jdbc driver -->
+					<dependencies>
+						<!-- JDBC DEPENDENCIES -->
+						<dependency>
+							<groupId>org.postgresql</groupId>
+							<artifactId>postgresql</artifactId>
+							<version>${postgresql.version}</version>
+						</dependency>
+
+					</dependencies>
+					<executions>
+						<execution>
+							<id>create-data</id>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>execute</goal>
+							</goals>
+							<configuration>
+								<orderFile>ascending</orderFile>
+								<fileset>
+									<basedir>${basedir}</basedir>
+									<includes>
+										<include>src/main/resources/dll/inserts/initializeDatabase.sql</include>
+									</includes>
+								</fileset>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<!--This plugin is used to execute java classes with a main method. -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>${exec-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>${m2e.lifecycle-mapping.version}</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											hibernate3-maven-plugin
+										</artifactId>
+										<versionRange>
+											[${hibernate3-maven-plugin.version},)
+										</versionRange>
+										<goals>
+											<goal>hbm2ddl</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+			</plugins>
+
+		</pluginManagement>
+
+		<plugins>
+
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+
+	</build>
+	
+	
+	<repositories>
+
+		<repository>
+			<id>jgeohash-mvn-repo</id>
+			<url>https://raw.github.com/astrapi69/jgeohash/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>jaulp.core-mvn-repo</id>
+			<url>https://raw.github.com/astrapi69/jaulp.core/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>Apache Nexus</id>
+			<url>https://repository.apache.org/content/repositories/snapshots/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>repository.jboss.org-public</id>
+			<name>JBoss repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public</url>
+		</repository>
+
+		<repository>
+			<id>sonatype-snapshots</id>
+			<name>Sonatype Snapshots Repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>thirdparty-releases</id>
+			<name>JBoss Thirdparty Releases</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+		</repository>
+
+	</repositories>
+
+</project>

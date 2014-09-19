@@ -1,0 +1,9 @@
+
+description = 'user.management'
+dependencies {
+  compile project(':dao.api')
+    compile group: 'org.jaulp', name: 'jaulp.security', version:'1.7.0'
+    compile group: 'org.jaulp', name: 'mystic.crypt', version:'1.7.3'
+    compile group: 'org.jaulp', name: 'jaulp.time', version:'1.9.1'
+  compile project(':address.book')
+}

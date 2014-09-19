@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- Enable annotation configuration -->
+	<context:annotation-config />
+
+	<!-- Scan sample packages for Spring annotations -->
+	<context:component-scan base-package="address.book.daos" />
+	<context:component-scan base-package="address.book.model" />
+	<context:component-scan base-package="address.book.service.api" />
+	<context:component-scan base-package="address.book.service" />	
+		
+	<bean id="propertyPlaceholder"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- PostgreSQL DataSource -->
+	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.base.url}${jdbc.db.name}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>address.book.model.Addresses</value>
+				<value>address.book.model.Countries</value>
+				<value>address.book.model.Federalstates</value>
+				<value>address.book.model.Zipcodes</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.hbm2ddl.auto=update
+				hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+				hibernate.connection.driver_class=org.postgresql.Driver
+				show_sql=true		
+				hibernate.dbcp.initialSize=10
+				hibernate.dbcp.maxActive=500
+				hibernate.dbcp.maxIdle=20
+				hibernate.dbcp.minIdle=10
+				hibernate.dbcp.maxWait=3000
+				hibernate.dbcp.validationQuery=SELECT 1
+			</value>
+		</property>
+	</bean>
+
+	<!-- Transaction Management -->
+	<tx:annotation-driven transaction-manager="txManager" />
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+</beans>
+
