@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 /**
  * The Class BaseEntity holds the primary key.
  */
@@ -39,6 +42,21 @@ public abstract class BaseEntity<PK extends Serializable> implements java.io.Ser
 	 */
 	public void setId(final PK id) {
 		this.id = id;
+	}
+
+    /**
+     * {@inheritDoc}
+     */
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, getToStringStyle());
+	}
+
+	/**
+	 * Factory method that can be overwritten to get another {@link ToStringStyle} object for the {@link BaseEntity#toString()}. Default is {@link ToStringStyle#SHORT_PREFIX_STYLE}.
+	 */
+	protected ToStringStyle getToStringStyle() {
+		return ToStringStyle.SHORT_PREFIX_STYLE;
 	}
 
     /**
