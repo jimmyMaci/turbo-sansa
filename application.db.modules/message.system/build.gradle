@@ -1,9 +1,0 @@
-
-description = 'message.system'
-dependencies {
-  compile project(':dao.api')
-  compile project(':user.management')
-    compile group: 'org.jaulp', name: 'jaulp.email', version:'1.8.6'
-    compile group: 'org.jaulp', name: 'jaulp.xml', version:'1.3.4'
-    compile group: 'org.apache.velocity', name: 'velocity', version:'1.7'
-}

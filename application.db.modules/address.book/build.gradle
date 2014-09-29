@@ -1,9 +1,0 @@
-
-description = 'address.book'
-dependencies {
-  compile project(':dao.api')
-    compile group: 'org.jaulp', name: 'jaulp.xml', version:'1.3.4'
-    compile group: 'jGeohash', name: 'jgeohash', version:'1.4.3'
-    testCompile group: 'org.jaulp', name: 'jaulp.random', version:'1.6.9'
-    testCompile group: 'p6spy', name: 'p6spy', version:'1.3'
-}
