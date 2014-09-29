@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import net.sourceforge.jaulp.lang.ObjectUtils;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
@@ -50,6 +52,14 @@ public abstract class BaseEntity<PK extends Serializable> implements java.io.Ser
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, getToStringStyle());
+	}
+
+    /**
+     * {@inheritDoc}
+     */
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return ObjectUtils.cloneObjectQuietly(this);		
 	}
 
 	/**
