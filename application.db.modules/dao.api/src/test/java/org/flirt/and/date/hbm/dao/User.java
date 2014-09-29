@@ -32,6 +32,14 @@ import org.hibernate.annotations.Index;
 @Table(name = "users")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User extends BaseEntity<Long> {
+	
+	public static void main(final String[] args) {
+		User user = new User();
+		user.setEmail("bob@mail.com");
+		user.setPassword("secret");
+		user.setUsername("bob");
+		System.out.println(user.toString());
+}
 
 	private static final long serialVersionUID = 1L;
 	private String username;
