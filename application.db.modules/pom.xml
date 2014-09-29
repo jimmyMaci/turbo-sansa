@@ -17,6 +17,7 @@
 		<module>rating.system</module>
 		<module>resource.system</module>
 		<module>user.management</module>
+		<module>scheduler.system</module>
 	</modules>
 
 	<properties>
