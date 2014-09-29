@@ -1,9 +1,9 @@
 package address.book.daos;
 
+import hbm.dao.jpa.JpaEntityManagerDao;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import hbm.dao.jpa.JpaEntityManagerDao;
 
 import org.springframework.stereotype.Repository;
 

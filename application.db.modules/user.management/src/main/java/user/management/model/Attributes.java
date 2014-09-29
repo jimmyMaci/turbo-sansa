@@ -1,14 +1,10 @@
 package user.management.model;
 
-import java.io.Serializable;
-
 import hbm.entity.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import net.sourceforge.jaulp.lang.ObjectUtils;
 
 /**
  * The Entity class {@link Attributes} is keeping the information for
@@ -18,7 +14,7 @@ import net.sourceforge.jaulp.lang.ObjectUtils;
 @Table(name = "attributes")
 public class Attributes
 extends BaseEntity<Integer>
-implements Cloneable, Serializable { 
+implements Cloneable { 
 	
 	/**  The serial Version UID. */
 	private static final long serialVersionUID = 1L;
@@ -36,22 +32,6 @@ implements Cloneable, Serializable {
      * Instantiates a new attributes.
      */
     public Attributes() {
-	}
-    
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public Attributes clone() throws CloneNotSupportedException {
-		return ObjectUtils.clone(this);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
 	}
 	
 	/**
@@ -85,14 +65,6 @@ implements Cloneable, Serializable {
 	}
 	
 	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
-	
-	/**
 	 * Sets the name.
 	 *
 	 * @param name the new name
@@ -117,25 +89,6 @@ implements Cloneable, Serializable {
      */
     public void setValue(String value) {
 		this.value = value;
-	}
-	
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("[Attributes:");
-		buffer.append("id: ");
-		buffer.append(getId());
-		buffer.append(" name: ");
-		buffer.append(name);
-		buffer.append(" type: ");
-		buffer.append(type);
-		buffer.append(" value: ");
-		buffer.append(value);
-		buffer.append("]");
-		return buffer.toString();
 	}
  
 }

@@ -2,7 +2,6 @@ package message.system.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -45,7 +44,7 @@ import user.management.model.Users;
 		@TypeDef(name = "stateConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "message.system.enums.MessageState") }) })
 public class Messages 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID */
 	private static final long serialVersionUID = 920286633675636537L;
@@ -413,67 +412,4 @@ implements Cloneable, Serializable {
 		this.parent = parent;
 	}
 	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public Messages clone() throws CloneNotSupportedException {
-		super.clone(); 
-		Messages copy = new Messages();
-		copy.setSenderDeletedFlag(this.isSenderDeletedFlag());
-		copy.setRecipientDeletedFlag(this.recipientDeletedFlag);
-		copy.setParent(this.parent);
-		copy.setFailed2sentemail(this.isFailed2sentemail());
-		copy.setFolder(this.getFolder());
-		copy.setId(this.getId());
-		copy.setMessageContent(this.getMessageContent());
-		copy.setMessagetype(this.getMessagetype());
-		copy.setReadFlag(this.isReadFlag());
-		copy.setSender(this.getSender());
-		copy.setSentDate(this.getSentDate());
-		copy.setSpamFlag(this.isSpamFlag());
-		copy.setState(this.getState());
-		copy.setSubject(this.getSubject());
-		return copy;
-	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("senderDeletedFlag: " + this.senderDeletedFlag + ", ");
-		sb.append("recipientDeletedFlag: " + this.recipientDeletedFlag + ", ");
-		sb.append("failed2sentemail: " + this.failed2sentemail + ", ");
-		sb.append("parent: " + this.parent + ", ");
-		sb.append("folder: " + this.folder + ", ");
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("messageContent: " + this.messageContent + ", ");
-		sb.append("messagetype: " + this.messagetype + ", ");
-		sb.append("readFlag: " + this.readFlag + ", ");
-		sb.append("sentDate: " + this.sentDate + ", ");
-		sb.append("sender: " + this.sender + ", ");
-		sb.append("spamFlag: " + this.spamFlag + ", ");
-		sb.append("state: " + this.state + ", ");
-		sb.append("subject: " + this.subject);
-		return sb.toString();
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
-
 }

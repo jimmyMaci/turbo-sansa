@@ -2,8 +2,6 @@ package address.book.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +20,7 @@ import org.hibernate.annotations.Index;
 @Table(name = "zipcodes")
 public class Zipcodes 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;

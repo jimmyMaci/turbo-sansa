@@ -6,12 +6,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import resource.system.application.model.ResourcesModel;
-import resource.system.model.Resources;
 import net.sourceforge.jaulp.auth.exceptions.EmailAlreadyExistsException;
 import net.sourceforge.jaulp.auth.exceptions.UserAlreadyExistsException;
-import net.sourceforge.jaulp.auth.models.ValidationErrors;
 import net.sourceforge.jaulp.auth.models.UsernameSignUpModel;
+import net.sourceforge.jaulp.auth.models.ValidationErrors;
+import resource.system.application.model.ResourcesModel;
+import resource.system.model.Resources;
 import user.management.enums.Contactmethod;
 import user.management.model.Contactmethods;
 import user.management.model.Roles;

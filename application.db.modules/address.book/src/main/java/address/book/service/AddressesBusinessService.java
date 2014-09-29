@@ -1,12 +1,12 @@
 package address.book.service;
 
+import hbm.service.jpa.AbstractBusinessService;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.persistence.Query;
-
-import hbm.service.jpa.AbstractBusinessService;
 
 import org.jgeohash.GeoHashUtils;
 import org.springframework.beans.factory.annotation.Autowired;

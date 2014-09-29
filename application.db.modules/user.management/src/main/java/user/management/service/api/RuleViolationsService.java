@@ -1,8 +1,9 @@
 package user.management.service.api;
 
+import hbm.service.jpa.BusinessService;
+
 import java.util.List;
 
-import hbm.service.jpa.BusinessService;
 import user.management.application.models.InfringementModel;
 import user.management.enums.RuleViolationReason;
 import user.management.model.RuleViolations;

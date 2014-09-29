@@ -4,9 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Locale;
 
-import address.book.model.Addresses;
-
 import user.management.enums.Gender;
+import address.book.model.Addresses;
 
 /**
  * The Class UserModel holds data of the user.

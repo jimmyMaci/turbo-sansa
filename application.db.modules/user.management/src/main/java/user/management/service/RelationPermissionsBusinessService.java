@@ -1,10 +1,11 @@
 package user.management.service;
 
+import hbm.service.jpa.AbstractBusinessService;
+
 import java.util.List;
 
 import javax.persistence.Query;
 
-import hbm.service.jpa.AbstractBusinessService;
 import net.sourceforge.jaulp.collections.ListUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;

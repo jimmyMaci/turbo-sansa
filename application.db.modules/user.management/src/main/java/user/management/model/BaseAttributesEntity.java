@@ -17,9 +17,8 @@ import javax.persistence.ManyToMany;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class BaseAttributesEntity extends BaseEntity<Integer> {
 
-	/**
-	 * 
-	 */
+
+	/**  The serial Version UID. */
 	private static final long serialVersionUID = 1L;
 	private Set<Attributes> attributes = new HashSet<Attributes>(0);
 

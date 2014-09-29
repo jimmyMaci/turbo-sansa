@@ -1,8 +1,6 @@
 package db.resource.bundles.model;
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -16,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="resourcebundles")
 public class Resourcebundles 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** Serial Version UID */
 	private static final long serialVersionUID = 1L;	
@@ -104,49 +102,5 @@ implements Cloneable, Serializable {
 	public void setValue (final String value) {
 		this.value = value;
 	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-    public Resourcebundles clone() throws CloneNotSupportedException {
-        Resourcebundles copy = new Resourcebundles();
-		copy.setBaseName(this.getBaseName());
-		copy.setId(this.getId());
-		copy.setLocale(this.getLocale());
-		copy.setKey(this.getKey());
-		copy.setValue(this.getValue());
-		return copy;
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		
-		sb.append("baseName: "+this.baseName + ", ");
-		sb.append("id: "+this.getId() + ", ");
-		sb.append("locale: "+this.locale + ", ");
-		sb.append("key: "+this.key + ", ");
-		sb.append("value: "+this.value);
-		return sb.toString();		
-	}
 	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
 }

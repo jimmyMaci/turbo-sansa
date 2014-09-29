@@ -2,8 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -16,7 +14,7 @@ import org.hibernate.annotations.Index;
 @Table(name="robinsons")
 public class Robinsons
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	private static final long serialVersionUID = 1L;
 

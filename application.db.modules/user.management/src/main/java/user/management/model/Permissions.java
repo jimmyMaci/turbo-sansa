@@ -34,21 +34,6 @@ implements Permission, Cloneable {
 	}
 
 	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Permissions clone() throws CloneNotSupportedException {
-		super.clone(); 
-		Permissions copy = new Permissions();
-
-		copy.setDescription(this.getDescription());
-		copy.setId(this.getId());
-		copy.setPermissionName(this.getPermissionName());
-		copy.setShortcut(this.getShortcut());
-		return copy;
-	}
-
-	/**
 	 * Return the value associated with the column: description
 	 * 
 	 * @return A String object (this.description)
@@ -107,34 +92,5 @@ implements Permission, Cloneable {
 	public void setShortcut(final String shortcut) {
 		this.shortcut = shortcut;
 	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("description: " + this.description + ", ");
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("permission: " + this.permissionName + ", ");
-		sb.append("shortcut: " + this.shortcut);
-		return sb.toString();
-	}
-
 	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
 }

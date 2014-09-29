@@ -2,8 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -25,7 +23,7 @@ import user.management.enums.Contactmethod;
 @TypeDef(name = "contactmethodConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "user.management.enums.Contactmethod") })
 public class Contactmethods 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID */
 	private static final long serialVersionUID = -3939311384481132485L;
@@ -41,19 +39,6 @@ implements Cloneable, Serializable {
 	 * Default constructor
 	 */
 	public Contactmethods() {
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Contactmethods clone() throws CloneNotSupportedException {
-		super.clone();
-		Contactmethods copy = new Contactmethods();
-		copy.setContactmethod(this.getContactmethod());
-		copy.setContactvalue(this.getContactvalue());
-		copy.setId(this.getId());
-		return copy;
 	}
 
 	/**
@@ -97,34 +82,6 @@ implements Cloneable, Serializable {
 	 */
 	public void setContactvalue(final String contactvalue) {
 		this.contactvalue = contactvalue;
-	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("contactmethod: " + this.contactmethod + ", ");
-		sb.append("contactvalue: " + this.contactvalue + ", ");
-		sb.append("id: " + this.getId());
-		return sb.toString();
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
 	}
 
 }

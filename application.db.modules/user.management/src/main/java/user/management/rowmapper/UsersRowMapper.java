@@ -1,7 +1,8 @@
 package user.management.rowmapper;
-import java.sql.ResultSet;  
-import java.sql.SQLException;  
-import org.springframework.jdbc.core.RowMapper; 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
 
 import user.management.model.UserData;
 import user.management.model.Users;

@@ -2,7 +2,6 @@ package rating.system.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,7 +24,7 @@ import user.management.model.Users;
 @MappedSuperclass
 public class Ratings 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** Serial Version UID */
 	private static final long serialVersionUID = -559039798L;
@@ -165,64 +164,5 @@ implements Cloneable, Serializable {
 	public void setVisibility(final RatingVisibility visibility) {
 		this.visibility = visibility;
 	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public Object clone() throws CloneNotSupportedException {
-		super.clone();
-		Ratings copy = new Ratings();
-
-		copy.setId(this.getId());
-		copy.setRater(this.getRater());
-		copy.setRatingpoints(this.getRatingpoints());
-		copy.setRatingDate(this.getRatingDate());
-		copy.setRatingDescription(this.getRatingDescription());
-		copy.setTitleRating(this.getTitleRating());
-		copy.setVisibility(this.getVisibility());
-		return copy;
-	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append("[Ratings:");
-		buffer.append("id: ");
-		buffer.append(getId());
-		buffer.append(" rater: ");
-		buffer.append(rater);
-		buffer.append(" ratingpoints: ");
-		buffer.append(ratingpoints);
-		buffer.append(" ratingDate: ");
-		buffer.append(ratingDate);
-		buffer.append(" ratingDescription: ");
-		buffer.append(ratingDescription);
-		buffer.append(" titleRating: ");
-		buffer.append(titleRating);
-		buffer.append(" visibility: ");
-		buffer.append(visibility);
-		buffer.append("]");
-		return buffer.toString();
-	}
 	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
-
 }

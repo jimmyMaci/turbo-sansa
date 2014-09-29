@@ -2,7 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +21,7 @@ import javax.persistence.Table;
 @Table(name = "roles")
 public class Roles 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID. */
 	private static final long serialVersionUID = -5523602462337489391L;
@@ -47,20 +46,6 @@ implements Cloneable, Serializable {
 	 */
 	public boolean addPermission(Permissions permission){
 		return permissions.add(permission);
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Roles clone() throws CloneNotSupportedException {
-		super.clone();
-		Roles copy = new Roles();
-
-		copy.setDescription(this.getDescription());
-		copy.setId(this.getId());
-		copy.setRolename(this.getRolename());
-		return copy;
 	}
 
 	/**
@@ -123,34 +108,5 @@ implements Cloneable, Serializable {
 	public void setRolename(final String rolename) {
 		this.rolename = rolename;
 	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append("description: " + this.description + ", ");
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("rolename: " + this.rolename);
-		return sb.toString();
-	}
-
 	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
 }

@@ -12,6 +12,7 @@ import user.management.enums.RuleViolationReason;
 import user.management.model.Attributes;
 import user.management.model.Contactmethods;
 import user.management.model.Permissions;
+import user.management.model.Recommendations;
 import user.management.model.RelationPermissions;
 import user.management.model.ResetPasswords;
 import user.management.model.Robinsons;
@@ -19,7 +20,6 @@ import user.management.model.Roles;
 import user.management.model.RuleViolations;
 import user.management.model.UserData;
 import user.management.model.Users;
-import user.management.model.Recommendations;
 import address.book.model.Addresses;
 
 /**

@@ -1,9 +1,10 @@
 package resource.system.service.api;
 
+import hbm.service.jpa.BusinessService;
+
 import java.util.List;
 
 import resource.system.model.Resources;
-import hbm.service.jpa.BusinessService;
 
 public interface ResourcesService extends BusinessService<Resources, Integer> {
 	Resources findByName(String filename);

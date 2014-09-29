@@ -2,7 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,7 +22,7 @@ import javax.persistence.Table;
 @Table(name = "users")
 public class Users 
 extends BaseEntity<Integer> 
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID. */
 	private static final long serialVersionUID = 1L;
@@ -57,26 +56,6 @@ implements Cloneable, Serializable {
 	 */
 	public boolean addRole(Roles role) {
 		return roles.add(role);
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	public Object clone() throws CloneNotSupportedException {
-		super.clone();
-		Users copy = new Users();
-		copy.active = this.active == null ? null : new Boolean(
-				this.active.booleanValue());
-		copy.locked = this.locked == null ? null : new Boolean(
-				this.locked.booleanValue());
-		copy.pw = this.pw == null ? null : new String(this.pw);
-		copy.setRoles(this.roles);
-		copy.salt = this.salt == null ? null : new String(this.salt);
-		copy.userData = this.userData == null ? null : (UserData) copy.userData
-				.clone();
-		copy.username = this.username == null ? null
-				: new String(this.username);
-		return copy;
 	}
 
 	/**
@@ -218,33 +197,6 @@ implements Cloneable, Serializable {
 	 */
 	public void setUsername(final String username) {
 		this.username = username;
-	}
-
-	
-    /**
-	 * {@inheritDoc}
-	 */
-	public String toString() {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append("[Users:");
-		buffer.append("id: ");
-		buffer.append(getId());
-		buffer.append(" active: ");
-		buffer.append(active);
-		buffer.append(" locked: ");
-		buffer.append(locked);
-		buffer.append(" pw: ");
-		buffer.append(pw);
-		buffer.append(" roles: ");
-		buffer.append(roles);
-		buffer.append(" salt: ");
-		buffer.append(salt);
-		buffer.append(" userData: ");
-		buffer.append(userData);
-		buffer.append(" username: ");
-		buffer.append(username);
-		buffer.append("]");
-		return buffer.toString();
 	}
 
 }

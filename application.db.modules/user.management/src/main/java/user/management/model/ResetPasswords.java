@@ -2,7 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -24,7 +23,7 @@ import org.hibernate.annotations.Index;
 @Table(name = "reset_passwords")
 public class ResetPasswords 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID */
 	private static final long serialVersionUID = -4437962692764644264L;
@@ -125,51 +124,5 @@ implements Cloneable, Serializable {
 	public void setUser(final Users user) {
 		this.user = user;
 	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public ResetPasswords clone() throws CloneNotSupportedException {
-		super.clone();
-		ResetPasswords copy = new ResetPasswords();
-
-		copy.setExpiryDate(this.getExpiryDate());
-		copy.setGeneratedPassword(this.getGeneratedPassword());
-		copy.setId(this.getId());
-		copy.setStarttime(this.getStarttime());
-		copy.setUser(this.getUser());
-		return copy;
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append("expiryDate: " + this.expiryDate + ", ");
-		sb.append("generatedPassword: " + this.generatedPassword + ", ");
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("starttime: " + this.starttime + ", ");
-		return sb.toString();
-	}
-
 	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
 }

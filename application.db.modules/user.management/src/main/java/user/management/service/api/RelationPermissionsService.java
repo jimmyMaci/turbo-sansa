@@ -1,8 +1,9 @@
 package user.management.service.api;
 
+import hbm.service.jpa.BusinessService;
+
 import java.util.List;
 
-import hbm.service.jpa.BusinessService;
 import user.management.model.Permissions;
 import user.management.model.RelationPermissions;
 import user.management.model.Users;

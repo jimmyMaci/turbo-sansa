@@ -2,8 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +19,7 @@ import org.hibernate.annotations.Index;
 @Table(name = "recommendations")
 public class Recommendations
 extends BaseEntity<Integer>
-implements Cloneable, Serializable { 
+implements Cloneable { 
 
 	/**
 	 * The serial Version UID

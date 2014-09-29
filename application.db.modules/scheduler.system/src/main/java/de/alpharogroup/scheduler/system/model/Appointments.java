@@ -2,7 +2,6 @@ package de.alpharogroup.scheduler.system.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -27,7 +26,7 @@ import de.alpharogroup.scheduler.system.enums.Rhythm;
 @TypeDefs({ @TypeDef(name = "rhythmConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "de.alpharogroup.scheduler.system.enums.Rhythm") }) })
 public class Appointments 
 extends BaseEntity<Integer>
- implements Cloneable, Serializable {
+ implements Cloneable {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 	/** The last time from the appointment. */
@@ -125,51 +124,5 @@ extends BaseEntity<Integer>
 	public void setStarttime(final Date starttime) {
 		this.starttime = starttime;
 	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public Appointments clone() throws CloneNotSupportedException {
-		super.clone(); // keep hierarchy
-		Appointments copy = new Appointments();
-
-		copy.setEndtime(this.getEndtime());
-		copy.setId(this.getId());
-		copy.setNexttime(this.getNexttime());
-		copy.setRhythm(this.getRhythm());
-		copy.setStarttime(this.getStarttime());
-		return copy;
-	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuffer sb = new StringBuffer();
-
-		sb.append("endtime: " + this.endtime + ", ");
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("nexttime: " + this.nexttime + ", ");
-		sb.append("rhythm: " + this.rhythm + ", ");
-		sb.append("starttime: " + this.starttime);
-		return sb.toString();
-	}
 	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
 }

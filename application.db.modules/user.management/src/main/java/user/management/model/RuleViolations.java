@@ -2,8 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +19,6 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import user.management.enums.RuleViolationReason;
-import user.management.model.Users;
 
 /**
  * Object mapping for hibernate-handled table: rule_violations 
@@ -32,7 +29,7 @@ import user.management.model.Users;
 	@TypeDef(name = "reasonConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "user.management.enums.RuleViolationReason") }) })
 public class RuleViolations
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/**
 	 * 

@@ -2,8 +2,6 @@ package address.book.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -16,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "countries")
 public class Countries 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID. */
 	private static final long serialVersionUID = 1L;

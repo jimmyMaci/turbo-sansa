@@ -2,7 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -39,7 +38,7 @@ import address.book.model.Addresses;
 @TypeDefs({ @TypeDef(name = "genderConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "user.management.enums.Gender") }) })
 public class UserData 
 extends BaseEntity<Integer> 
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/**
 	 * The serial Version UID.
@@ -76,41 +75,6 @@ implements Cloneable, Serializable {
 	 * Default constructor.
 	 */
 	public UserData() {
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	public Object clone() throws CloneNotSupportedException {
-		super.clone();
-		UserData copy = new UserData();
-		copy.setAddresses(this.addresses);
-		
-		copy.birthname = this.birthname == null ? null : new String(
-				this.birthname);
-		copy.setContactmethods(this.contactmethods);
-		copy.dateofbirth = this.dateofbirth == null ? null
-				: (Date) copy.dateofbirth.clone();
-		copy.firstname = this.firstname == null ? null : new String(
-				this.firstname);
-		copy.setGender(this.gender);
-		copy.setResources(this.resources);
-		
-		copy.ipAddress = this.ipAddress == null ? null : new String(
-				this.ipAddress);
-		copy.lastname = this.lastname == null ? null
-				: new String(this.lastname);
-		copy.locale = this.locale == null ? null : new String(this.locale);
-		copy.setUserContacts(this.userContacts);
-		return copy;
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
 	}
 
 	/**
@@ -268,14 +232,6 @@ implements Cloneable, Serializable {
 	}
 
 	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
-	}
-
-	/**
 	 * Sets the addresses.
 	 * 
 	 * @param addresses
@@ -404,37 +360,4 @@ implements Cloneable, Serializable {
 		this.userContacts = userContacts;
 	}
 	
-    /**
-     * {@inheritDoc}
-     */
-	public String toString() {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append("[UserData:");
-		buffer.append("id: ");
-		buffer.append(getId());
-		buffer.append(" addresses: ");
-		buffer.append(addresses);
-		buffer.append(" birthname: ");
-		buffer.append(birthname);
-		buffer.append(" contactmethods: ");
-		buffer.append(contactmethods);
-		buffer.append(" dateofbirth: ");
-		buffer.append(dateofbirth);
-		buffer.append(" firstname: ");
-		buffer.append(firstname);
-		buffer.append(" gender: ");
-		buffer.append(gender);
-		buffer.append(" resources: ");
-		buffer.append(resources);
-		buffer.append(" ipAddress: ");
-		buffer.append(ipAddress);
-		buffer.append(" lastname: ");
-		buffer.append(lastname);
-		buffer.append(" locale: ");
-		buffer.append(locale);
-		buffer.append(" userContacts: ");
-		buffer.append(userContacts);
-		buffer.append("]");
-		return buffer.toString();
-	}
 }

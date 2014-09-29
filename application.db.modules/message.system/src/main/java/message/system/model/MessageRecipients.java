@@ -2,8 +2,6 @@ package message.system.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +23,7 @@ import user.management.model.Users;
 @Table(name = "message_recipients")
 public class MessageRecipients 
 extends BaseEntity<Integer> 
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
@@ -121,56 +119,6 @@ implements Cloneable, Serializable {
 	 */
 	public void setRecipientEmail(Contactmethods recipientEmail) {
 		this.recipientEmail = recipientEmail;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public MessageRecipients clone() throws CloneNotSupportedException {
-		super.clone();
-		MessageRecipients copy = new MessageRecipients();
-
-		copy.setId(this.getId());
-		copy.setMessage(this.getMessage());
-		copy.setRecipient(this.getRecipient());
-		copy.setRecipientEmail(this.getRecipientEmail());
-		return copy;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String toString() {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append("[MessageRecipients:");
-		buffer.append("id: ");
-		buffer.append(getId());
-		buffer.append(" message: ");
-		buffer.append(message);
-		buffer.append(" recipient: ");
-		buffer.append(recipient);
-		buffer.append(" recipientEmail: ");
-		buffer.append(recipientEmail);
-		buffer.append("]");
-		return buffer.toString();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
 	}
 
 }

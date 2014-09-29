@@ -2,7 +2,6 @@ package user.management.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,7 +27,7 @@ import org.hibernate.annotations.Index;
 @Table(name="relation_permissions")
 public class RelationPermissions 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/**
 	 * 

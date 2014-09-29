@@ -2,8 +2,6 @@ package resource.system.model;
 
 import hbm.entity.BaseEntity;
 
-import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "resources")
 public class Resources 
 extends BaseEntity<Integer>
-implements Cloneable, Serializable {
+implements Cloneable {
 
 	/**
 	 * The serial Version UID
@@ -47,33 +45,6 @@ implements Cloneable, Serializable {
 	 * Default constructor.
 	 */
 	public Resources() {
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Resources clone() throws CloneNotSupportedException {
-		super.clone();
-		Resources copy = new Resources();
-		copy.setDescription(this.getDescription());
-		copy.setFilename(this.getFilename());
-		copy.setFilesize(this.getFilesize());
-		copy.setContentType(this.getContentType());
-		copy.setId(this.getId());
-		copy.setContent(this.getContent());
-		copy.setCreated(this.getCreated());
-		copy.setChecksum(this.getChecksum());
-		copy.setDeletedFlag(this.isDeletedFlag());
-		return copy;
-	}
-	
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
 	}
 
 	/**
@@ -143,14 +114,6 @@ implements Cloneable, Serializable {
 	@Column(length = 64)
 	public String getFilesize() {
 		return this.filesize;
-	}
-
-	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
 	}
 
 	/**
@@ -244,21 +207,5 @@ implements Cloneable, Serializable {
 	public void setFilesize(final String filesize) {
 		this.filesize = filesize;
 	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
 
-		sb.append("description: " + this.description + ", ");
-		sb.append("filename: " + this.filename + ", ");
-		sb.append("filesize: " + this.filesize + ", ");
-		sb.append("filetype: " + this.contentType + ", ");
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("content: "
-				+ (this.content == null ? null : Arrays.toString(this.content)));
-		return sb.toString();
-	}
 }
