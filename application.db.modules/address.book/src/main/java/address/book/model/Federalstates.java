@@ -146,19 +146,4 @@ implements Cloneable, Serializable {
 		this.subdivisionName = subdivisionName;
 	}
 
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("iso3166A2code: " + this.iso3166A2code + ", ");
-		sb.append("name: " + this.name + ", ");
-		sb.append("subdivisionCategory: " + this.subdivisionCategory + ", ");
-		sb.append("subdivisionName: " + this.subdivisionName);
-		return sb.toString();
-	}
-
 }

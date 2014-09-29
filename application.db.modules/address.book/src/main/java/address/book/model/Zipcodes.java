@@ -101,17 +101,4 @@ implements Cloneable, Serializable {
 	public void setZipcode(final String zipcode) {
 		this.zipcode = zipcode;
 	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-
-		sb.append("city: " + this.city + ", ");
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("zipcode: " + this.zipcode);
-		return sb.toString();
-	}
 }
