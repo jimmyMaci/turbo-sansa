@@ -40,20 +40,6 @@ implements Cloneable, Serializable {
 	}
 
 	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Zipcodes clone() throws CloneNotSupportedException {
-		super.clone(); 
-		Zipcodes copy = new Zipcodes();
-
-		copy.setCity(this.getCity());
-		copy.setId(this.getId());
-		copy.setZipcode(this.getZipcode());
-		return copy;
-	}
-
-	/**
 	 * Return the value associated with the column: city
 	 * 
 	 * @return A String object (this.city)
@@ -127,21 +113,5 @@ implements Cloneable, Serializable {
 		sb.append("id: " + this.getId() + ", ");
 		sb.append("zipcode: " + this.zipcode);
 		return sb.toString();
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
 	}
 }

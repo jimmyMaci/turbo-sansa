@@ -44,23 +44,6 @@ implements Cloneable, Serializable {
 	}
 
 	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Federalstates clone() throws CloneNotSupportedException {
-		super.clone();
-		Federalstates copy = new Federalstates();
-
-		copy.setCountry(this.getCountry());
-		copy.setId(this.getId());
-		copy.setIso3166A2code(this.getIso3166A2code());
-		copy.setName(this.getName());
-		copy.setSubdivisionCategory(this.getSubdivisionCategory());
-		copy.setSubdivisionName(this.getSubdivisionName());
-		return copy;
-	}
-
-	/**
 	 * Return the value associated with the column: country
 	 * 
 	 * @return A Countries object (this.country)
@@ -176,23 +159,6 @@ implements Cloneable, Serializable {
 		sb.append("subdivisionCategory: " + this.subdivisionCategory + ", ");
 		sb.append("subdivisionName: " + this.subdivisionName);
 		return sb.toString();
-	}
-
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
 	}
 
 }

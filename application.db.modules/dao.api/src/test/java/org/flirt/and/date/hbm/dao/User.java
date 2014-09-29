@@ -33,12 +33,14 @@ import org.hibernate.annotations.Index;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User extends BaseEntity<Long> {
 	
-	public static void main(final String[] args) {
+	public static void main(final String[] args) throws CloneNotSupportedException {
 		User user = new User();
 		user.setEmail("bob@mail.com");
 		user.setPassword("secret");
 		user.setUsername("bob");
 		System.out.println(user.toString());
+		User cloned = (User) user.clone();
+		System.out.println(cloned);
 }
 
 	private static final long serialVersionUID = 1L;

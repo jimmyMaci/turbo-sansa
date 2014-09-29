@@ -56,25 +56,6 @@ implements Cloneable, Serializable {
 	}
 
 	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Addresses clone() throws CloneNotSupportedException {
-		super.clone(); 
-		Addresses copy = new Addresses();
-		copy.setAddressComment(this.getAddressComment());
-		copy.setFederalstate(this.getFederalstate());
-		copy.setGeohash(this.getGeohash());
-		copy.setId(this.getId());
-		copy.setLatitude(this.getLatitude());
-		copy.setLongitude(this.getLongitude());
-		copy.setStreet(this.getStreet());
-		copy.setStreetnumber(this.getStreetnumber());
-		copy.setZipcode(this.getZipcode());
-		return copy;
-	}
-
-	/**
 	 * Return the value associated with the column: addressComment
 	 * 
 	 * @return A String object (this.addressComment)
@@ -240,51 +221,6 @@ implements Cloneable, Serializable {
 	 */
 	public void setZipcode(final Zipcodes zipcode) {
 		this.zipcode = zipcode;
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append("[Addresses:");
-		buffer.append("id: ");
-		buffer.append(getId());
-		buffer.append(" addressComment: ");
-		buffer.append(addressComment);
-		buffer.append(" federalstate: ");
-		buffer.append(federalstate);
-		buffer.append(" geohash: ");
-		buffer.append(geohash);
-		buffer.append(" latitude: ");
-		buffer.append(latitude);
-		buffer.append(" longitude: ");
-		buffer.append(longitude);
-		buffer.append(" street: ");
-		buffer.append(street);
-		buffer.append(" streetnumber: ");
-		buffer.append(streetnumber);
-		buffer.append(" zipcode: ");
-		buffer.append(zipcode);
-		buffer.append("]");
-		return buffer.toString();
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
 	}
 	
 }

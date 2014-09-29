@@ -36,22 +36,6 @@ implements Cloneable, Serializable {
 	}
 
 	/**
-     * {@inheritDoc}
-     */
-	@Override
-	public Countries clone() throws CloneNotSupportedException {
-		super.clone(); 
-		Countries copy = new Countries();
-
-		copy.setId(this.getId());
-		copy.setIso3166A2name(this.getIso3166A2name());
-		copy.setIso3166A3name(this.getIso3166A3name());
-		copy.setIso3166Number(this.getIso3166Number());
-		copy.setName(this.getName());
-		return copy;
-	}
-
-	/**
 	 * Return the value associated with the column: iso3166A2name.
 	 *
 	 * @return A String object (this.iso3166A2name)
@@ -125,36 +109,5 @@ implements Cloneable, Serializable {
 	 */
 	public void setName(final String name) {
 		this.name = name;
-	}
-
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("id: " + this.getId() + ", ");
-		sb.append("iso3166A2name: " + this.iso3166A2name + ", ");
-		sb.append("iso3166A3name: " + this.iso3166A3name + ", ");
-		sb.append("iso3166Number: " + this.iso3166Number + ", ");
-		sb.append("name: " + this.name);
-		return sb.toString();
-	}
-
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
-	
-    /**
-     * {@inheritDoc}
-     */
-	@Override
-	public int hashCode() {
-		return super.hashCode();
 	}
 }
