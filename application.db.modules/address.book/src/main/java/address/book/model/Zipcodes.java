@@ -128,7 +128,6 @@ implements Cloneable, Serializable {
 		sb.append("zipcode: " + this.zipcode);
 		return sb.toString();
 	}
-
 	
     /**
      * {@inheritDoc}
