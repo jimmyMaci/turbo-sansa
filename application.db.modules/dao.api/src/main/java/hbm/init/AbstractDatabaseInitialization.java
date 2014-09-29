@@ -18,6 +18,7 @@ import net.sourceforge.jaulp.io.StreamUtils;
 import net.sourceforge.jaulp.jdbc.ConnectionsUtils;
 
 import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.engine.jdbc.internal.DDLFormatterImpl;
 import org.hibernate.engine.jdbc.internal.Formatter;
 
@@ -33,6 +34,7 @@ public abstract class AbstractDatabaseInitialization {
 	protected String initializationProcess;
 	protected String fileEncoding;
 	protected boolean log;
+	protected boolean postgresDatabase;
 
 	public AbstractDatabaseInitialization(Properties databaseProperties) {
 		this.databaseProperties = databaseProperties;
@@ -43,6 +45,12 @@ public abstract class AbstractDatabaseInitialization {
 		initializationProcess = databaseProperties.getProperty("jdbc.create.db.process");
 		fileEncoding = databaseProperties.getProperty("jdbc.file.encoding");
 		log = BooleanUtils.toBoolean(databaseProperties.getProperty("jdbc.show.sql.log"));
+		String vendor = databaseProperties.getProperty("jdbc.db.vendor");
+		if(vendor != null && !vendor.isEmpty()) {
+			postgresDatabase = BooleanUtils.toBoolean(vendor);
+		} else {
+			postgresDatabase = true;
+		}
 	}
 
 	public Properties getDatabaseProperties() {
@@ -163,20 +171,25 @@ public abstract class AbstractDatabaseInitialization {
 		StringBuilder sb = new StringBuilder();
 		Formatter formatter = new DDLFormatterImpl();
 		File schema = new File(sqlDir, "schema.sql");
-		String result = ReadFileUtils.readFromFile(schema);
-		sb.append(formatter.format(result));
+		if(postgresDatabase) {
+			String result = replaceMediumblobToBytea(schema);
+			sb.append(formatter.format(result));
+		} else {
+			String result = ReadFileUtils.readFromFile(schema);
+			sb.append(formatter.format(result));			
+		}
 		sb.append(System.getProperty("line.separator"));
 		sb.append(System.getProperty("line.separator"));
 		if(processtype.equals(DELETE_PROCESS)) {
 			File createEnums = new File(sqlDir, "createEnumTypes.sql");
 			if(createEnums.exists()) {
-				result = ReadFileUtils.readFromFile(createEnums);
+				String result = ReadFileUtils.readFromFile(createEnums);
 				sb.append(result);
 				sb.append(System.getProperty("line.separator"));				
 			}
 			File updateEnums = new File(sqlDir, "updateEnumFields.sql");
 			if(updateEnums.exists()) {
-				result = ReadFileUtils.readFromFile(updateEnums);
+				String result = ReadFileUtils.readFromFile(updateEnums);
 				sb.append(result);
 				sb.append(System.getProperty("line.separator"));				
 			}
@@ -184,13 +197,20 @@ public abstract class AbstractDatabaseInitialization {
 		File createIndexesAndForeignKeys = new File(sqlDir,
 				"createIndexesAndForeignKeys.sql");
 		if(createIndexesAndForeignKeys.exists()) {
-			result = ReadFileUtils.readFromFile(createIndexesAndForeignKeys);
+			String result = ReadFileUtils.readFromFile(createIndexesAndForeignKeys);
 			sb.append(result);			
 		}
 		File initializeSchemaDdl = new File(insertsDir, "initializeSchema.sql");
 		boolean writen = WriteFileUtils.writeStringToFile(initializeSchemaDdl,
 				sb.toString(), fileEncoding);
 		return writen;
+	}
+	
+	protected String replaceMediumblobToBytea(File schema)  throws IOException {
+		String contentSchema = ReadFileUtils.readFromFile(schema);
+		String result = StringUtils.replace(contentSchema , "MEDIUMBLOB", "BYTEA");
+		WriteFileUtils.writeStringToFile(schema, result, "UTF-8");
+		return result;
 	}
 	
 	protected void createSchema(Connection jdbcConnection, String processtype) throws FileNotFoundException, IOException, SQLException {
