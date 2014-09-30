@@ -34,13 +34,17 @@ import org.hibernate.annotations.Index;
 public class User extends BaseEntity<Long> {
 	
 	public static void main(final String[] args) throws CloneNotSupportedException {
+		Set<Role> roles = new HashSet<>();
+		roles.add(new Role.Builder().id(2L).name("master").description("the master role").build());
 		User user = new User();
+		user.setRoles(roles);
 		user.setEmail("bob@mail.com");
 		user.setPassword("secret");
 		user.setUsername("bob");
 		System.out.println(user.toString());
 		User cloned = (User) user.clone();
 		System.out.println(cloned);
+		System.out.println(cloned.toXml());
 }
 
 	private static final long serialVersionUID = 1L;

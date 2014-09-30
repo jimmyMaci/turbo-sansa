@@ -1,5 +1,7 @@
 package org.flirt.and.date.hbm.dao;
 
+import hbm.entity.BaseEntity;
+
 import java.util.Set;
 
 import javax.persistence.Basic;
@@ -21,7 +23,9 @@ import org.hibernate.annotations.Index;
 @Entity
 @Table(name = "roles")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Role {
+public class Role  extends BaseEntity<Long> {
+
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 
@@ -80,4 +84,41 @@ public class Role {
 		this.permissions = permissions;
 	}
 
+	public static class Builder {
+		private Long id;
+		private String name;
+		private String description;
+		private Set<String> permissions;
+
+		public Builder id(Long id) {
+			this.id = id;
+			return this;
+		}
+
+		public Builder name(String name) {
+			this.name = name;
+			return this;
+		}
+
+		public Builder description(String description) {
+			this.description = description;
+			return this;
+		}
+
+		public Builder permissions(Set<String> permissions) {
+			this.permissions = permissions;
+			return this;
+		}
+
+		public Role build() {
+			return new Role(this);
+		}
+	}
+
+	private Role(Builder builder) {
+		this.id = builder.id;
+		this.name = builder.name;
+		this.description = builder.description;
+		this.permissions = builder.permissions;
+	}
 }
