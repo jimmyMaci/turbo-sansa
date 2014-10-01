@@ -26,7 +26,8 @@
 		<slf4j-log4j12.version>1.6.4</slf4j-log4j12.version>
 		<log4j.version>1.2.16</log4j.version>
 		<testng.version>6.8.8</testng.version>
-		<lombok.version>1.14.4</lombok.version>
+		<!-- LOMBOK version -->
+		<lombok.version>1.14.8</lombok.version>
 		<!-- PROJECT DB MODULES versions -->
 		<address.book.version>1.0.1</address.book.version>
 		<dao.api.version>1.0.4</dao.api.version>
