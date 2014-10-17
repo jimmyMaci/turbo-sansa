@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    					         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="flirt" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<class>address.book.model.Addresses</class>
+		<class>address.book.model.Countries</class>
+		<class>address.book.model.Federalstates</class>
+		<class>address.book.model.Zipcodes</class>
+		
+		<class>resource.system.model.Resources</class>
+		
+		<class>user.management.model.Attributes</class>
+		<class>user.management.model.Contactmethods</class>
+		<class>user.management.model.Permissions</class>
+		<class>user.management.model.Recommendations</class>
+		<class>user.management.model.RelationPermissions</class>
+		<class>user.management.model.ResetPasswords</class>
+		<class>user.management.model.Robinsons</class>
+		<class>user.management.model.Roles</class>
+		<class>user.management.model.RuleViolations</class>
+		<class>user.management.model.UserData</class>
+		<class>user.management.model.Users</class>
+		
+		<class>message.system.model.MessageRecipients</class>
+		<class>message.system.model.Messages</class>
+		
+		<class>db.resource.bundles.model.Resourcebundles</class>
+
+		<class>flirt.and.date.hbm.model.FavoriteMembers</class>
+		<class>flirt.and.date.hbm.model.FriendshipRequests</class>
+		<class>flirt.and.date.hbm.model.ProfileNotice</class>
+		<class>flirt.and.date.hbm.model.ProfileRatings</class>
+		<class>flirt.and.date.hbm.model.ProfileVisitors</class>
+		<class>flirt.and.date.hbm.model.SearchCriteria</class>
+		<class>flirt.and.date.hbm.model.UserCredits</class>
+		<class>flirt.and.date.hbm.model.UserProfile</class>
+
+		<properties>
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://127.0.0.1:5432/flirt" />
+			<property name="hibernate.connection.user" value="postgres" />
+			<property name="hibernate.connection.password" value="top-secret-pw" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/flirt"/>
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			<property name="javax.persistence.jdbc.password" value="top-secret-pw"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>

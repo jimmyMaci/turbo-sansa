@@ -18,6 +18,7 @@
 		<module>resource.system</module>
 		<module>user.management</module>
 		<module>scheduler.system</module>
+		<module>dating.system</module>
 	</modules>
 
 	<properties>
@@ -245,6 +246,12 @@
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>resource.system</artifactId>
 				<version>${resource.system.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>rating.system</artifactId>
+				<version>${rating.system.version}</version>
 			</dependency>
 			<!-- JAULP DEPENDENCIES -->
 			<dependency>
