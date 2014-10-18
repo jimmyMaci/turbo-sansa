@@ -19,6 +19,7 @@
 		<module>user.management</module>
 		<module>scheduler.system</module>
 		<module>dating.system</module>
+		<module>events.system</module>
 	</modules>
 
 	<properties>
@@ -32,35 +33,23 @@
 		<!-- PROJECT DB MODULES versions -->
 		<address.book.version>1.0.1</address.book.version>
 		<dao.api.version>1.0.4</dao.api.version>
+		<dating.system.version>1.0.0</dating.system.version>
 		<db.resource.bundles.version>1.0.0</db.resource.bundles.version>
 		<message.system.version>1.0.6</message.system.version>
 		<payment.module.version>1.0.0</payment.module.version>
+		<payment.module.version>1.0.0</payment.module.version>
 		<rating.system.version>1.0.0</rating.system.version>
 		<resource.system.version>1.0.0</resource.system.version>
+		<scheduler.system.version>1.0.0</scheduler.system.version>
 		<user.management.version>1.0.4</user.management.version>
-		<!-- MAVEN PLUGIN versions -->
-		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
-		<maven-compiler-plugin.source.version>1.7</maven-compiler-plugin.source.version>
-		<maven-compiler-plugin.target.version>1.7</maven-compiler-plugin.target.version>
-		<maven-compiler-plugin.compilerVersion>1.7</maven-compiler-plugin.compilerVersion>
-		<maven-compiler-plugin.encoding>UTF-8</maven-compiler-plugin.encoding>
-		<maven-compiler-plugin.optimize>true</maven-compiler-plugin.optimize>
-		<maven-compiler-plugin.showWarnings>true</maven-compiler-plugin.showWarnings>
-		<maven-compiler-plugin.debug>true</maven-compiler-plugin.debug>
-		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
-		<hibernate3-maven-plugin.version>2.2</hibernate3-maven-plugin.version>
-		<sql-maven-plugin.version>1.5</sql-maven-plugin.version>
-		<m2e.lifecycle-mapping.version>1.0.0</m2e.lifecycle-mapping.version>
-		<exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
-		<properties-maven-plugin.version>1.0-alpha-2</properties-maven-plugin.version>
 		<!-- HIBERNATE versions -->
 		<hibernate.version>4.2.7.Final</hibernate.version>
 		<cglib.version>2.2.2</cglib.version>
 		<!-- CONNECTION POOL versions -->
 		<tomcat-dbcp.version>7.0.54</tomcat-dbcp.version>
 		<bonecp.version>0.7.1.RELEASE</bonecp.version>
+		<!-- DB UNIT version -->
+		<dbunit.version>2.5.0</dbunit.version>
 		<!-- SPRING versions -->
 		<spring.version>3.2.5.RELEASE</spring.version>
 		<!-- DB DRIVER version -->
@@ -91,6 +80,23 @@
 		<p6spy.version>1.3</p6spy.version>
 		<!-- EXTERNAL LIBRARIES versions -->
 		<subethasmtp.version>3.1.7</subethasmtp.version>
+		<!-- MAVEN PLUGIN versions -->
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<maven-compiler-plugin.source.version>1.7</maven-compiler-plugin.source.version>
+		<maven-compiler-plugin.target.version>1.7</maven-compiler-plugin.target.version>
+		<maven-compiler-plugin.compilerVersion>1.7</maven-compiler-plugin.compilerVersion>
+		<maven-compiler-plugin.encoding>UTF-8</maven-compiler-plugin.encoding>
+		<maven-compiler-plugin.optimize>true</maven-compiler-plugin.optimize>
+		<maven-compiler-plugin.showWarnings>true</maven-compiler-plugin.showWarnings>
+		<maven-compiler-plugin.debug>true</maven-compiler-plugin.debug>
+		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+		<hibernate3-maven-plugin.version>2.2</hibernate3-maven-plugin.version>
+		<sql-maven-plugin.version>1.5</sql-maven-plugin.version>
+		<m2e.lifecycle-mapping.version>1.0.0</m2e.lifecycle-mapping.version>
+		<exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
+		<properties-maven-plugin.version>1.0-alpha-2</properties-maven-plugin.version>
 	</properties>
 
 
@@ -169,6 +175,73 @@
 				<artifactId>postgresql</artifactId>
 				<version>${postgresql.version}</version>
 			</dependency>
+			<!-- DB-MODULES DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>address.book</artifactId>
+				<version>${address.book.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>dao.api</artifactId>
+				<version>${dao.api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>dating.system</artifactId>
+				<version>${dating.system.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>db.resource.bundles</artifactId>
+				<version>${db.resource.bundles.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>message.system</artifactId>
+				<version>${message.system.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>payment.module</artifactId>
+				<version>${payment.module.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>rating.system</artifactId>
+				<version>${rating.system.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>resource.system</artifactId>
+				<version>${resource.system.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>scheduler.system</artifactId>
+				<version>${scheduler.system.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>user.management</artifactId>
+				<version>${user.management.version}</version>
+			</dependency>
+			<!-- DBUNIT DEPENDENCIES -->
+			<dependency>
+				<groupId>org.dbunit</groupId>
+				<artifactId>dbunit</artifactId>
+				<version>${dbunit.version}</version>
+				<scope>test</scope>
+			</dependency>
 			<!-- EXTERNAL LIBRARIES versions -->
 			<dependency>
 				<groupId>com.google.code.gson</groupId>
@@ -210,48 +283,6 @@
 				<groupId>org.apache.velocity</groupId>
 				<artifactId>velocity</artifactId>
 				<version>${velocity.version}</version>
-			</dependency>
-			<!-- DB-MODULES DEPENDENCIES -->
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>message.system</artifactId>
-				<version>${message.system.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>db.resource.bundles</artifactId>
-				<version>${db.resource.bundles.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>address.book</artifactId>
-				<version>${address.book.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>dao.api</artifactId>
-				<version>${dao.api.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>user.management</artifactId>
-				<version>${user.management.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>resource.system</artifactId>
-				<version>${resource.system.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>rating.system</artifactId>
-				<version>${rating.system.version}</version>
 			</dependency>
 			<!-- JAULP DEPENDENCIES -->
 			<dependency>

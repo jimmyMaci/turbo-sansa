@@ -33,6 +33,12 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>address.book</artifactId>
 		</dependency>
+		<!-- DBUNIT DEPENDENCIES -->
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
