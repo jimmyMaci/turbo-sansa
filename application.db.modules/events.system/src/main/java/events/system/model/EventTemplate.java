@@ -22,7 +22,6 @@ import org.hibernate.annotations.TypeDefs;
 import events.system.enums.Difficulty;
 import events.system.enums.EventType;
 
-
 /**
  * The Entity class {@Events} is keeping the information for the
  * events.
@@ -30,12 +29,10 @@ import events.system.enums.EventType;
 @Entity
 @Table(name = "events")
 @TypeDefs({
-		@TypeDef(name = "difficultyConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "com.sem.base.enums.Difficulty") }),
+		@TypeDef(name = "difficultyConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "events.system.enums.Difficulty") }),
 
-		@TypeDef(name = "eventtypeConverter", typeClass =hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "com.sem.base.enums.EventType") }) })
-public class Events  
-extends BaseEntity<Integer>
-implements Cloneable {
+		@TypeDef(name = "eventtypeConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "events.system.enums.EventType") }) })
+public class EventTemplate extends BaseEntity<Integer> implements Cloneable {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 	/** The category of the event. */
@@ -66,6 +63,7 @@ implements Cloneable {
 	/** The price from the event. */
 	private java.math.BigDecimal price;
 	/** The user id from the provider. */
+	// TODO change with Users object.
 	private Integer providerId;
 	/** A description for the requirements from the event. */
 	private String requirements;
@@ -79,7 +77,7 @@ implements Cloneable {
 	/**
 	 * Default constructor, mainly for hibernate use
 	 */
-	public Events() {
+	public EventTemplate() {
 		// Default constructor
 	}
 
@@ -430,5 +428,5 @@ implements Cloneable {
 	public void setTargetgroup(final String targetgroup) {
 		this.targetgroup = targetgroup;
 	}
-	
+
 }

@@ -12,9 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "categories")
-public class Categories 
-extends BaseEntity<Integer>
- implements Cloneable {
+public class Categories extends BaseEntity<Integer> implements Cloneable {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 	/** The name from the catecory. */

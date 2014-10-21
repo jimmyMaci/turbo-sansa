@@ -20,9 +20,7 @@ import user.management.model.Users;
  */
 @Entity
 @Table(name = "event_locations")
-public class EventLocations  
-extends BaseEntity<Integer>
-implements Cloneable {
+public class EventLocations extends BaseEntity<Integer> implements Cloneable {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 	/**
@@ -32,14 +30,18 @@ implements Cloneable {
 	private Appointments appointment;
 	/**
 	 * The contactperson attribute that references to the Entity class {@Users
+	 * 
+	 * 
 	 * }.
 	 */
 	private Users contactperson;
 	/**
 	 * The event attribute that references to the Entity class {@Events
+	 * 
+	 * 
 	 * }.
 	 */
-	private Events event;
+	private EventTemplate event;
 	/**
 	 * The eventLocation attribute that references to the Entity class
 	 * {@link Addresses}.
@@ -111,7 +113,7 @@ implements Cloneable {
 	@JoinColumn(name = "event_id", nullable = true, referencedColumnName = "id")
 	@Index(name = "IDX_EVENTLOCATIONS_ID")
 	@ForeignKey(name = "FK_EVENTLOCATIONS_EVENT_ID")
-	public Events getEvent() {
+	public EventTemplate getEvent() {
 		return this.event;
 	}
 
@@ -121,10 +123,10 @@ implements Cloneable {
 	 * @param event
 	 *            the event value you wish to set
 	 */
-	public void setEvent(final Events event) {
+	public void setEvent(final EventTemplate event) {
 		this.event = event;
 	}
-	
+
 	/**
 	 * Return the value associated with the column: eventLocation
 	 * 
@@ -148,5 +150,5 @@ implements Cloneable {
 	public void setEventLocation(final Addresses eventLocation) {
 		this.eventLocation = eventLocation;
 	}
-	
+
 }

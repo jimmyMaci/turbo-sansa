@@ -13,9 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "event_location_data")
-public class EventLocationData  
-extends BaseEntity<Integer>
-implements Cloneable {
+public class EventLocationData extends BaseEntity<Integer> implements Cloneable {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 	/** The quantity of the available rooms or places. */
@@ -223,5 +221,5 @@ implements Cloneable {
 	public void setSeatsPerRoom(final Integer seatsPerRoom) {
 		this.seatsPerRoom = seatsPerRoom;
 	}
-	
+
 }

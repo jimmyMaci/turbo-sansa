@@ -16,13 +16,13 @@ import org.hibernate.annotations.Index;
 /**
  * The Entity class {@EventMessages } is keeping the information
  * for the connection between the Entity class {@EventLocations
+ * 
+ * 
  *  } and the Entity class {@Messages }.
  */
 @Entity
 @Table(name = "event_messages")
-public class EventMessages  
-extends BaseEntity<Integer>
-implements Cloneable {
+public class EventMessages extends BaseEntity<Integer> implements Cloneable {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 	/**
@@ -32,6 +32,8 @@ implements Cloneable {
 	private EventLocations eventLocation;
 	/**
 	 * The message attribute that references to the Entity class {@Messages
+	 * 
+	 * 
 	 * }.
 	 */
 	private Messages message;
@@ -90,5 +92,5 @@ implements Cloneable {
 	public void setMessage(final Messages message) {
 		this.message = message;
 	}
-	
+
 }

@@ -17,28 +17,28 @@ import rating.system.model.Ratings;
 /**
  * The Entity class {@EventRatings} is keeping the information
  * for the ratings from the events.
+ * 
+ * TODO check if the rating object should be rather an EventLocation.
  */
 @Entity
 @Table(name = "event_ratings")
 @TypeDefs({ @TypeDef(name = "ratingVisibilityConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "rating.system.enums.RatingVisibility") }) })
-public class EventRatings  
-extends Ratings {
+public class EventRatings extends Ratings {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 	/** The rating for the contact. */
 	private Integer contact;
 	/**
-	 * The event attribute that references to the Entity class {@Events
-	 * }.
+	 * The event attribute that references to the Entity class
+	 * {@link EventTemplate}.
 	 */
-	private Events event;
+	private EventTemplate event;
 	/** The rating for the event location. */
 	private Integer eventlocation;
 	/** The rating for the material. */
 	private Integer material;
 	/** The rating for the presentation. */
 	private Integer presentation;
-
 	/** The rating for the support. */
 	private Integer support;
 	/** The rating for the topic. */
@@ -81,7 +81,7 @@ extends Ratings {
 	@JoinColumn(name = "event_id", nullable = true, referencedColumnName = "id")
 	@Index(name = "IDX_EVENT_RATINGS_ID")
 	@ForeignKey(name = "FK_EVENT_RATINGS_EVENT_ID")
-	public Events getEvent() {
+	public EventTemplate getEvent() {
 		return this.event;
 	}
 
@@ -91,7 +91,7 @@ extends Ratings {
 	 * @param event
 	 *            the event value you wish to set
 	 */
-	public void setEvent(final Events event) {
+	public void setEvent(final EventTemplate event) {
 		this.event = event;
 	}
 
@@ -194,5 +194,5 @@ extends Ratings {
 	public void setTopic(final Integer topic) {
 		this.topic = topic;
 	}
-	
+
 }

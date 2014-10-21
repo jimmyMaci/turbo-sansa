@@ -30,16 +30,7 @@
 	<context:component-scan base-package="message.system.model" />
 	<context:component-scan base-package="message.system.daos" />
 	<context:component-scan base-package="message.system.service.api" />
-	<context:component-scan base-package="message.system.service" />	
-	<context:component-scan base-package="db.resource.bundles.model" />
-	<context:component-scan base-package="db.resource.bundles.daos" />
-	<context:component-scan base-package="db.resource.bundles.service.api" />
-	<context:component-scan base-package="db.resource.bundles.service" />
-	<context:component-scan base-package="flirt.and.date.hbm.model" />	
-	<context:component-scan base-package="flirt.and.date.hbm.daos" />
-	<context:component-scan base-package="flirt.and.date.hbm.service.api" />
-	<context:component-scan base-package="flirt.and.date.hbm.service" />
-	<context:component-scan base-package="flirt.and.date.hbm.service.locator" />
+	<context:component-scan base-package="message.system.service" />
 	
 	<bean id="propertyPlaceholder"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -73,7 +64,6 @@
 		<property name="removeAbandonedTimeout" value="60" /><!-- default:60 -->
 	</bean>
 
-
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
@@ -91,7 +81,7 @@
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitManager" ref="persistenceUnitManager" />
-		<property name="persistenceUnitName" value="flirt" />
+		<property name="persistenceUnitName" value="events" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">

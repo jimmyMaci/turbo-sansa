@@ -1,6 +1,5 @@
 package events.system.enums;
 
-
 /**
  * Defines the EventType enumeration
  * 
