@@ -65,16 +65,6 @@ public class ServiceLocatorImpl implements Serializable, ServiceLocator {
 	@Autowired
 	private RelationPermissionsService relationPermissionsService;
 
-
-	public RelationPermissionsService getRelationPermissionsService() {
-		return relationPermissionsService;
-	}
-
-	public void setRelationPermissionsService(
-			RelationPermissionsService relationPermissionsService) {
-		this.relationPermissionsService = relationPermissionsService;
-	}
-
 	/** The contactmethods business service. */
 	@Autowired
 	private ContactmethodsService contactmethodsService;
@@ -173,10 +163,26 @@ public class ServiceLocatorImpl implements Serializable, ServiceLocator {
 	private RobinsonsService robinsonsService;
 
 	/**
-	 * Instantiates a new service provider.
+	 * Instantiates a new service locator.
 	 */
 	public ServiceLocatorImpl() {
-		super();
+	}
+
+	/**
+     * {@inheritDoc}
+     */
+	@Override
+	public RelationPermissionsService getRelationPermissionsService() {
+		return relationPermissionsService;
+	}
+
+	/**
+     * {@inheritDoc}
+     */
+	@Override
+	public void setRelationPermissionsService(
+			RelationPermissionsService relationPermissionsService) {
+		this.relationPermissionsService = relationPermissionsService;
 	}
 
 	/**
