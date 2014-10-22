@@ -6,6 +6,10 @@ import java.util.Date;
 import resource.system.model.Resources;
 
 public final class ResourceSystemFactory implements Serializable {
+	
+	private ResourceSystemFactory() {
+	}
+
 	/**
 	 * 
 	 */
