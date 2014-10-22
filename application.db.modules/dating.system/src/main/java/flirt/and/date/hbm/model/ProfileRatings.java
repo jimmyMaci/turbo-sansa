@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import rating.system.model.Ratings;
 
@@ -16,7 +17,10 @@ import rating.system.model.Ratings;
  */
 @Entity
 @Table(name = "profile_ratings")
-@TypeDef(name = "visibilityConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "rating.system.enums.RatingVisibility") })
+@TypeDefs({ @TypeDef(
+		name = "ratingVisibilityConverter", 
+		typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, 
+		parameters = { @Parameter(name = "enumClassName", value = "rating.system.enums.RatingVisibility") }) })
 public class ProfileRatings extends Ratings {
 	
 	/**

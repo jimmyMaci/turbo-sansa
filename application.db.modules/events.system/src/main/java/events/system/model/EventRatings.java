@@ -22,7 +22,10 @@ import rating.system.model.Ratings;
  */
 @Entity
 @Table(name = "event_ratings")
-@TypeDefs({ @TypeDef(name = "ratingVisibilityConverter", typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, parameters = { @Parameter(name = "enumClassName", value = "rating.system.enums.RatingVisibility") }) })
+@TypeDefs({ @TypeDef(
+		name = "ratingVisibilityConverter", 
+		typeClass = hbm.dao.postgres.usertype.PGEnumUserType.class, 
+		parameters = { @Parameter(name = "enumClassName", value = "rating.system.enums.RatingVisibility") }) })
 public class EventRatings extends Ratings {
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;

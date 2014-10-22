@@ -54,17 +54,17 @@
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.file</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.lang</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.xml</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.file</artifactId>
 		</dependency>
 		
 	</dependencies>

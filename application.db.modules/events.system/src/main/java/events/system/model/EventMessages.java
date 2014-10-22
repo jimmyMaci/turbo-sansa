@@ -53,7 +53,7 @@ public class EventMessages extends BaseEntity<Integer> implements Cloneable {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "event_location_id", nullable = true, referencedColumnName = "id")
-	@Index(name = "IDX_EVENT_LOCATION_ID")
+	@Index(name = "IDX_EVENT_MESSAGES_EVENT_LOCATION_ID")
 	@ForeignKey(name = "FK_EVENT_MESSAGES_EVENT_LOCATION_ID")
 	public EventLocations getEventLocation() {
 		return this.eventLocation;

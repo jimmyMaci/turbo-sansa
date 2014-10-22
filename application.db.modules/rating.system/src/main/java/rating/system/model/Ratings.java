@@ -150,7 +150,7 @@ implements Cloneable {
 	 */
 	@Column(name = "visibility")
 	@Enumerated(EnumType.STRING)
-	@Type(type = "visibilityConverter")
+	@Type(type = "ratingVisibilityConverter")
 	public RatingVisibility getVisibility() {
 		return this.visibility;
 	}
