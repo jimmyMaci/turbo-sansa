@@ -64,4 +64,20 @@ public interface MessagesService extends BusinessService<Messages, Integer>{
 	 * @return the list
 	 */
 	List<Messages> findSentMessages(final Users user);
+	
+	/**
+	 * Find messages children.
+	 *
+	 * @param parent the parent
+	 * @return the list
+	 */
+	List<Messages> findMessagesChildren(Messages parent);
+	
+	/**
+	 * Find all children and childrens children.
+	 *
+	 * @param parent the parent
+	 * @return the list
+	 */
+	List<Messages> findAllChildren(final Messages parent);
 }

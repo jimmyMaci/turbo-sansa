@@ -266,6 +266,18 @@ public interface UserManagementService extends net.sourceforge.jaulp.auth.userma
 			throws BatchUpdateException;
 
 	/**
+	 * Save user with contacts.
+	 * 
+	 * @param user
+	 *            the user
+	 * @param contacts
+	 *            the contacts
+	 * @return the list
+	 */
+	List<Contactmethods> saveUserWithContactmethods(final Users user,
+			final List<Contactmethods> contacts) throws BatchUpdateException;
+
+	/**
 	 * Save user with roles.
 	 * 
 	 * @param user

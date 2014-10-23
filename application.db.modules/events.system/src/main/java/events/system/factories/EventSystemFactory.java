@@ -112,7 +112,7 @@ public class EventSystemFactory {
 			String consultant, String content, Difficulty difficulty,
 			Integer duration, EventType eventtype, String head, Integer id,
 			String introduction, String locale, Boolean material, String name,
-			java.math.BigDecimal price, Integer providerId,
+			java.math.BigDecimal price, Users provider,
 			String requirements, Integer subscribermax, Integer subscribermin,
 			String targetgroup) {
 		EventTemplate events = new EventTemplate();
@@ -129,7 +129,7 @@ public class EventSystemFactory {
 		events.setMaterial(material);
 		events.setName(name);
 		events.setPrice(price);
-		events.setProviderId(providerId);
+		events.setProvider(provider);
 		events.setRequirements(requirements);
 		events.setSubscribermax(subscribermax);
 		events.setSubscribermin(subscribermin);

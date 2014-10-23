@@ -7,6 +7,8 @@ import java.util.Set;
 
 import javax.persistence.Query;
 
+import net.sourceforge.jaulp.collections.ListUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -73,16 +75,17 @@ public class RolesBusinessService extends
 	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Roles findRole(final String rolename) {
+		return ListUtils.getFirst(findRoles(rolename));
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Roles> findRoles(final String rolename) {
 		final String hqlString = "select r from Roles r where r.rolename=:rolename";
 		final Query query = getQuery(hqlString);
 		query.setParameter("rolename", rolename);
 		final List<Roles> roles = query.getResultList();
-		if (roles != null && !roles.isEmpty()) {
-			return roles.get(0);
-		}
-		return null;
+		return roles;
 	}
 
 	/**

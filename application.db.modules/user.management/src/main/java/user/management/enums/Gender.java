@@ -11,7 +11,9 @@ public enum Gender {
 	/** The male. */
 	MALE,
 	/** The female. */
-	FEMALE,
+	FEMALE, 
+	/** represents a company. */
+	INCORPORATION,
 	/** The undefined. */
 	UNDEFINED;
 

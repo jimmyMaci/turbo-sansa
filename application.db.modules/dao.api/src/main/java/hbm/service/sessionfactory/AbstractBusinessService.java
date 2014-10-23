@@ -177,7 +177,6 @@ public abstract class AbstractBusinessService<T extends BaseEntity<PK>, PK exten
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	public T merge(T object) {
 		return (T) getDao().merge(object);
 	}
@@ -205,6 +204,13 @@ public abstract class AbstractBusinessService<T extends BaseEntity<PK>, PK exten
 	 */
 	public List<PK> save(List<T> objects) {
 		return getDao().save(objects);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public List<T> merge(List<T> objects) {
+		return getDao().merge(objects);
 	}
 
 	/**

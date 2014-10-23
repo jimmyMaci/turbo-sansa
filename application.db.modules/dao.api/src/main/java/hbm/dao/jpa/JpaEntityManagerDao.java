@@ -169,6 +169,18 @@ public abstract class JpaEntityManagerDao<T extends BaseEntity<PK>, PK extends S
 	 * {@inheritDoc}
 	 */
 	@Override
+	public List<T> merge(List<T> objects) {
+		List<T> mergedEntities = new ArrayList<T>();
+		for (T object : objects) {
+			mergedEntities.add(merge(object));
+		}
+		return mergedEntities;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public PK save(T object) {
 		getEntityManager().persist(object);
 		return object.getId();

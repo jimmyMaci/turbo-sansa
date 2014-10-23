@@ -19,6 +19,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
+import user.management.model.Users;
 import events.system.enums.Difficulty;
 import events.system.enums.EventType;
 
@@ -63,8 +64,7 @@ public class EventTemplate extends BaseEntity<Integer> implements Cloneable {
 	/** The price from the event. */
 	private java.math.BigDecimal price;
 	/** The user id from the provider. */
-	// TODO change with Users object.
-	private Integer providerId;
+	private Users provider;
 	/** A description for the requirements from the event. */
 	private String requirements;
 	/** The minimum that have to subscribe to this event so it can be executed. */
@@ -330,13 +330,13 @@ public class EventTemplate extends BaseEntity<Integer> implements Cloneable {
 	}
 
 	/**
-	 * Return the value associated with the column: providerId
+	 * Return the value associated with the column: provider
 	 * 
-	 * @return A Integer object (this.providerId)
+	 * @return A Integer object (this.provider)
 	 */
-	@Column(name = "provider_id")
-	public Integer getProviderId() {
-		return this.providerId;
+	@Column(name = "provider")
+	public Users getProvider() {
+		return this.provider;
 	}
 
 	/**
@@ -345,8 +345,8 @@ public class EventTemplate extends BaseEntity<Integer> implements Cloneable {
 	 * @param providerId
 	 *            the providerId value you wish to set
 	 */
-	public void setProviderId(final Integer providerId) {
-		this.providerId = providerId;
+	public void setProvider(final Users provider) {
+		this.provider = provider;
 	}
 
 	/**

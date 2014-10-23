@@ -460,6 +460,18 @@ public class UserManagementBusinessService implements UserManagementService {
 	/**
 	 * {@inheritDoc}
 	 */
+	public List<Contactmethods> saveUserWithContactmethods(final Users user,
+			final List<Contactmethods> contacts) throws BatchUpdateException {
+		List<Contactmethods> saved = contactmethodsService.merge(contacts);
+		UserData ud = userDataService.get(user.getUserData().getId());
+		ud.getContactmethods().addAll(saved);
+		ud = userDataService.merge(ud);
+		return saved;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void saveUserWithRoles(Users user,
 			final Collection<Roles> roles) {

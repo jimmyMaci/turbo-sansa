@@ -268,13 +268,13 @@ public class DomainObjectFactory implements Serializable {
             final EventType eventtype, final String head,
             final String introduction, final String locale,
             final Boolean material, final String name,
-            final java.math.BigDecimal price, final Integer providerId,
+            final java.math.BigDecimal price, final Users provider,
             final String requirements, final Integer subscribermax,
             final Integer subscribermin, final String targetgroup ) {
         return EventSystemFactory.getInstance().newEventTemplate( categories, consultant,
                 content, difficulty, duration, eventtype, head,
                 null, introduction,
-                locale, material, name, price, providerId, requirements,
+                locale, material, name, price, provider, requirements,
                 subscribermax, subscribermin, targetgroup );
     }
 

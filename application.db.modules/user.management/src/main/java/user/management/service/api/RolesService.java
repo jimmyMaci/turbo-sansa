@@ -30,6 +30,8 @@ public interface RolesService extends BusinessService<Roles, Integer>{
 	 */
 	Roles findRole(final String rolename);
 	
+	List<Roles> findRoles(final String rolename);
+	
 	/**
 	 * Checks if a role exists with the given role name.
 	 *

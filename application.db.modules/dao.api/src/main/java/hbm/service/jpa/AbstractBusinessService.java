@@ -23,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class AbstractBusinessService<T extends BaseEntity<PK>, PK extends Serializable, DAO extends EntityManagerDao<T, PK>>
 		implements BusinessService<T, PK> {
 
+
 	/**
 	 * 
 	 */
@@ -110,7 +111,6 @@ public abstract class AbstractBusinessService<T extends BaseEntity<PK>, PK exten
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	@Transactional
 	public T merge(T object) {
 		return (T) getDao().merge(object);
@@ -130,6 +130,14 @@ public abstract class AbstractBusinessService<T extends BaseEntity<PK>, PK exten
 	@Transactional
 	public List<PK> save(List<T> objects) {
 		 return getDao().save(objects);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Transactional
+	public List<T> merge(List<T> objects) {
+		return getDao().merge(objects);
 	}
 
 	/**

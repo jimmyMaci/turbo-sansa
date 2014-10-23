@@ -2,7 +2,9 @@ package message.system.service;
 
 import hbm.service.jpa.AbstractBusinessService;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -46,6 +48,41 @@ public class MessagesBusinessService extends AbstractBusinessService<Messages, I
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Messages> findMessagesChildren(Messages parent) {
+		final String hqlString = 
+				"select distinct m "
+				+ "from Messages as m "
+				+ "where m.parent=:parent";
+		final Query query = getQuery(hqlString);
+		query.setParameter("parent", parent);
+		List<Messages> messages = query.getResultList();
+		if (null != messages && !messages.isEmpty()) {
+			return messages;
+		}
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public List<Messages> findAllChildren(final Messages parent) {
+		final List<Messages> children = findMessagesChildren(parent);
+		final List<Messages> childElements = new ArrayList<Messages>();
+		childElements.addAll(children);
+		if (children != null) {
+			final Iterator<Messages> it = children.iterator();
+			while (it.hasNext()) {
+				final Messages child = it.next();
+				childElements.addAll(findAllChildren(child));
+			}
+		}
+		return childElements;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
 	public List<Messages> findMessages(Users user) {
 		final String hqlString = 
 				"select distinct mr.message "
@@ -58,7 +95,10 @@ public class MessagesBusinessService extends AbstractBusinessService<Messages, I
 		List<Messages> messages = query.getResultList();
 		return messages;
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Messages> findMessages(final Users user, final MessageState state) {
 		final String hqlString = 
@@ -74,7 +114,10 @@ public class MessagesBusinessService extends AbstractBusinessService<Messages, I
 		List<Messages> messages = query.getResultList();
 		return messages;
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Messages> findSentMessages(final Users user) {
 		final String hqlString = 
@@ -88,7 +131,10 @@ public class MessagesBusinessService extends AbstractBusinessService<Messages, I
 		List<Messages> messages = query.getResultList();
 		return messages;
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public Messages saveMessageWithRecipients(IBaseMessageModel model) {
 		if(model.getSendInformationModel().getSender() == null) {
 			throw new IllegalArgumentException("Message should have a Sender. Currently Sender is null. Sender should not be null.");
@@ -116,7 +162,10 @@ public class MessagesBusinessService extends AbstractBusinessService<Messages, I
 		// Update the message and return it...
 		return merge(message);		
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@SuppressWarnings("unchecked")
 	public Set<Users> getRecipients(Messages message) {
 		final String hqlString = "select mr.recipient " +
@@ -130,7 +179,10 @@ public class MessagesBusinessService extends AbstractBusinessService<Messages, I
 		}
 		return null;
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public boolean isRecipientFrom(Messages message, Users user) {
 		Set<Users> recipients = getRecipients(message);
 		if(recipients != null && recipients.contains(user)){

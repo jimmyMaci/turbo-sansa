@@ -93,6 +93,15 @@ public interface BusinessService<T extends BaseEntity<PK>, PK extends Serializab
 	T merge(final T object);
 
 	/**
+	 * Merges all new objects in the given list.
+	 * 
+	 * @param objects
+	 *            the list to save
+	 * @return the list with the ids of the merged objects
+	 */
+	List<T> merge(List<T> objects);
+
+	/**
 	 * Re-read the state of the given instance from the underlying database.
 	 * 
 	 * @param object

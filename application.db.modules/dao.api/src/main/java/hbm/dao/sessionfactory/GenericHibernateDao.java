@@ -410,4 +410,13 @@ public class GenericHibernateDao<T extends BaseEntity<PK>, PK extends Serializab
 		}
 	}
 
+	@Override
+	public List<T> merge(List<T> objects) {
+		List<T> mergedEntities = new ArrayList<T>();
+		for (T object : objects) {
+			mergedEntities.add(merge(object));
+		}
+		return mergedEntities;
+	}
+
 }

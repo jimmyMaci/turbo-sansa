@@ -41,6 +41,16 @@
 			<artifactId>dating.system</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.file</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.generic.tree</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -116,15 +126,6 @@
 					<value>true</value>
 				</property>
 			</activation>
-
-			<dependencies>
-
-				<dependency>
-					<groupId>de.alpharogroup</groupId>
-					<artifactId>jaulp.file</artifactId>
-				</dependency>
-
-			</dependencies>
 
 			<build>
 				<plugins>
