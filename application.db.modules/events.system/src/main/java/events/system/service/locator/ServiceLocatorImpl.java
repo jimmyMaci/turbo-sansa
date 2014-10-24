@@ -4,6 +4,7 @@ import message.system.service.api.MessageRecipientsService;
 import message.system.service.api.MessagesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import de.alpharogroup.scheduler.system.service.api.AppointmentsService;
 import resource.system.service.api.ResourcesService;
@@ -16,6 +17,7 @@ import user.management.service.api.ResetPasswordsService;
 import user.management.service.api.RobinsonsService;
 import user.management.service.api.RolesService;
 import user.management.service.api.RuleViolationsService;
+import user.management.service.api.UserCreditsService;
 import user.management.service.api.UserDataService;
 import user.management.service.api.UserManagementService;
 import user.management.service.api.UsersService;
@@ -37,26 +39,30 @@ import events.system.service.api.RatingDescriptionsService;
 import events.system.service.api.TopicsService;
 import events.system.service.api.UserContactsAllowedContactmethodsService;
 import events.system.service.api.UsereventsService;
-import flirt.and.date.hbm.service.api.UserCreditsService;
 
-public class ServiceLocatorImpl 
-implements ServiceLocator 
-{	
+
+/**
+ * The Class ServiceLocatorImpl.
+ * 
+ * @author Asterios Raptis
+ */
+@Service("serviceLocator")
+public class ServiceLocatorImpl implements ServiceLocator {
 	/** The AppointmentsService. */
 	@Autowired
 	private AppointmentsService appointmentsService;
-	/** The AttributesService  */
+	/** The AttributesService */
 	@Autowired
 	private AttributesService attributesService;
-	
-	/** The RecommendationsService  */
+
+	/** The RecommendationsService */
 	@Autowired
 	private RecommendationsService recommendationsService;
 
 	/** The addresses service. */
 	@Autowired
 	private AddressesService addressesService;
-	
+
 	/** The RelationPermissions service. */
 	@Autowired
 	private RelationPermissionsService relationPermissionsService;
@@ -124,59 +130,59 @@ implements ServiceLocator
 	/** The Robinsons service. */
 	@Autowired
 	private RobinsonsService robinsonsService;
-	
+
 	/** The CategoriesService. */
 	@Autowired
 	private CategoriesService categoriesService;
-	
+
 	/** The EventLocationDataService. */
 	@Autowired
 	private EventLocationDataService eventLocationDataService;
-	
+
 	/** The EventLocationsService. */
 	@Autowired
 	private EventLocationsService eventLocationsService;
-	
+
 	/** The EventMessagesService. */
 	@Autowired
 	private EventMessagesService eventMessagesService;
-	
+
 	/** The EventRatingsService. */
 	@Autowired
 	private EventRatingsService eventRatingsService;
-	
+
 	/** The EventTemplateService. */
 	@Autowired
 	private EventTemplateService eventTemplateService;
-	
+
 	/** The EventTopicsService. */
 	@Autowired
 	private EventTopicsService eventTopicsService;
-	
+
 	/** The OfferedEventLocationsService. */
 	@Autowired
 	private OfferedEventLocationsService offeredEventLocationsService;
-	
+
 	/** The ProfileFederalstatesService. */
 	@Autowired
 	private ProfileFederalstatesService profileFederalstatesService;
-	
+
 	/** The ProfileTopicsService. */
 	@Autowired
 	private ProfileTopicsService profileTopicsService;
-	
+
 	/** The RatingDescriptionsService. */
 	@Autowired
 	private RatingDescriptionsService ratingDescriptionsService;
-	
+
 	/** The TopicsService. */
 	@Autowired
 	private TopicsService topicsService;
-	
+
 	/** The UserContactsAllowedContactmethodsService. */
 	@Autowired
 	private UserContactsAllowedContactmethodsService userContactsAllowedContactmethodsService;
-	
+
 	/** The UsereventsService. */
 	@Autowired
 	private UsereventsService usereventsService;
@@ -219,7 +225,8 @@ implements ServiceLocator
 		return contactmethodsService;
 	}
 
-	public void setContactmethodsService(ContactmethodsService contactmethodsService) {
+	public void setContactmethodsService(
+			ContactmethodsService contactmethodsService) {
 		this.contactmethodsService = contactmethodsService;
 	}
 
@@ -235,7 +242,8 @@ implements ServiceLocator
 		return federalstatesService;
 	}
 
-	public void setFederalstatesService(FederalstatesService federalstatesService) {
+	public void setFederalstatesService(
+			FederalstatesService federalstatesService) {
 		this.federalstatesService = federalstatesService;
 	}
 
@@ -276,7 +284,8 @@ implements ServiceLocator
 		return resetPasswordsService;
 	}
 
-	public void setResetPasswordsService(ResetPasswordsService resetPasswordsService) {
+	public void setResetPasswordsService(
+			ResetPasswordsService resetPasswordsService) {
 		this.resetPasswordsService = resetPasswordsService;
 	}
 
@@ -308,7 +317,8 @@ implements ServiceLocator
 		return userManagementService;
 	}
 
-	public void setUserManagementService(UserManagementService userManagementService) {
+	public void setUserManagementService(
+			UserManagementService userManagementService) {
 		this.userManagementService = userManagementService;
 	}
 
@@ -332,7 +342,8 @@ implements ServiceLocator
 		return ruleViolationsService;
 	}
 
-	public void setRuleViolationsService(RuleViolationsService ruleViolationsService) {
+	public void setRuleViolationsService(
+			RuleViolationsService ruleViolationsService) {
 		this.ruleViolationsService = ruleViolationsService;
 	}
 
@@ -365,7 +376,8 @@ implements ServiceLocator
 		return eventLocationsService;
 	}
 
-	public void setEventLocationsService(EventLocationsService eventLocationsService) {
+	public void setEventLocationsService(
+			EventLocationsService eventLocationsService) {
 		this.eventLocationsService = eventLocationsService;
 	}
 
@@ -373,7 +385,8 @@ implements ServiceLocator
 		return eventMessagesService;
 	}
 
-	public void setEventMessagesService(EventMessagesService eventMessagesService) {
+	public void setEventMessagesService(
+			EventMessagesService eventMessagesService) {
 		this.eventMessagesService = eventMessagesService;
 	}
 
@@ -389,7 +402,8 @@ implements ServiceLocator
 		return eventTemplateService;
 	}
 
-	public void setEventTemplateService(EventTemplateService eventTemplateService) {
+	public void setEventTemplateService(
+			EventTemplateService eventTemplateService) {
 		this.eventTemplateService = eventTemplateService;
 	}
 
@@ -423,7 +437,8 @@ implements ServiceLocator
 		return profileTopicsService;
 	}
 
-	public void setProfileTopicsService(ProfileTopicsService profileTopicsService) {
+	public void setProfileTopicsService(
+			ProfileTopicsService profileTopicsService) {
 		this.profileTopicsService = profileTopicsService;
 	}
 
@@ -466,7 +481,7 @@ implements ServiceLocator
 	}
 
 	public void setAppointmentsService(AppointmentsService appointmentsService) {
-		this.appointmentsService = appointmentsService;		
+		this.appointmentsService = appointmentsService;
 	}
 
 }

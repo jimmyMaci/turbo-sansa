@@ -31,6 +31,10 @@
 	<context:component-scan base-package="message.system.daos" />
 	<context:component-scan base-package="message.system.service.api" />
 	<context:component-scan base-package="message.system.service" />
+	<context:component-scan base-package="events.system.model" />
+	<context:component-scan base-package="events.system.daos" />
+	<context:component-scan base-package="events.system.service.api" />
+	<context:component-scan base-package="events.system.service" />
 	
 	<bean id="propertyPlaceholder"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

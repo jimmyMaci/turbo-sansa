@@ -51,7 +51,7 @@ public class MessagesBusinessServiceTest extends AbstractTestNGSpringContextTest
 	public void testSaveMessageWithRecipients() {
 		IMessageContentModel messageModel = new MessageContentModel();
 		ISendInformationModel sendInformationModel = new SendInformationModel();		
-		messageModel.setContent("Hello guys,\n\nhow are you?\n\nCheers\n\nAsterios");
+		messageModel.setContent("Hello guys,\n\nhow are you?\n\nCheers\n\nMichael");
 		messageModel.setSubject("Hi guys");
 		IBaseMessageModel model = new BaseMessageModel();
 		model.setMessageContentModel(messageModel);
@@ -71,7 +71,31 @@ public class MessagesBusinessServiceTest extends AbstractTestNGSpringContextTest
 		AssertJUnit.assertTrue(messagesService.exists(message.getId()));
 		Set<Users> r = messagesService.getRecipients(message);
 		AssertJUnit.assertTrue(r != null && !r.isEmpty());
-		AssertJUnit.assertTrue(r.iterator().next().equals(recipient));		
+		AssertJUnit.assertTrue(r.iterator().next().equals(recipient));	
+		
+		// Test the find reply messages...
+		// Create a reply message...
+		messageModel = new MessageContentModel();
+		sendInformationModel = new SendInformationModel();		
+		messageModel.setContent("Hello Michael,\n\nim fine and you?\n\nCheers\n\nAnton");
+		messageModel.setSubject("Re:Hi guys");
+		model = new BaseMessageModel();
+		model.setMessageContentModel(messageModel);
+		model.setSendInformationModel(sendInformationModel);
+		model.setMessageState(MessageState.UNREPLIED);
+		model.setMessageType(MessageType.REPLY);
+		// clear recipients
+		recipients.clear();
+		// its a reply so the sender is now the recipient...
+		recipients.add(sender);
+		model.getSendInformationModel().setRecipients(recipients);
+		model.getSendInformationModel().setSender(recipient);
+		model.getSendInformationModel().setSentDate(new Date(System.currentTimeMillis()));
+		Messages replyMessage = messagesService.saveMessageWithRecipients(model);
+		replyMessage.setParent(message);
+		messagesService.merge(replyMessage);
+		List<Messages> replies = messagesService.findReplyMessages(recipient);
+		System.out.println(replies);
 	}
 	
 
@@ -87,7 +111,7 @@ public class MessagesBusinessServiceTest extends AbstractTestNGSpringContextTest
 		return roles;
 	}
 	
-	public Users getUser(String firstname, String lastname, String email, String username){
+	public Users getUser(String firstname, String lastname, String email, String username) {
 	
 		UserManagementModelFactory userManagementModelFactory = UserManagementModelFactory.getInstance();
 		UserModel userModel = userManagementModelFactory.createUserModel(

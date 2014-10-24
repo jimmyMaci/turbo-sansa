@@ -8,6 +8,8 @@ import resource.system.model.Resources;
 
 public interface ResourcesService extends BusinessService<Resources, Integer> {
 	Resources findByName(String filename);
+	
+	Resources findByDescription(String description);
 
 	List<Resources> find(String description, String filename, String filesize,
 			String contentType);

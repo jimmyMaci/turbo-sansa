@@ -427,6 +427,7 @@ public class UserManagementBusinessService implements UserManagementService {
 		}
 		final boolean exists = existsUserWithUsername(username);
 		if (!exists) {
+			user.setUserData(userDataService.merge(user.getUserData()));
 			final Users mergedUser = usersService.merge(user);
 			return mergedUser.getId();
 		} else {

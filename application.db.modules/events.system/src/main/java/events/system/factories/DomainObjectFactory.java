@@ -453,6 +453,7 @@ public class DomainObjectFactory implements Serializable {
     public Messages getRepliesandnotes( final Messages message,
             final Messages replyornote ) {
     	replyornote.setParent(message);
+    	replyornote.setMessagetype(MessageType.REPLY);
         return replyornote;
     }
 

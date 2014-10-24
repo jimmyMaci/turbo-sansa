@@ -14,6 +14,7 @@ import message.system.application.models.send.api.IBaseMessageModel;
 import message.system.application.models.utlis.MessageModelConverter;
 import message.system.daos.MessagesDao;
 import message.system.enums.MessageState;
+import message.system.enums.MessageType;
 import message.system.factories.MessageSystemFactory;
 import message.system.model.MessageRecipients;
 import message.system.model.Messages;
@@ -131,6 +132,26 @@ public class MessagesBusinessService extends AbstractBusinessService<Messages, I
 		List<Messages> messages = query.getResultList();
 		return messages;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Messages> findReplyMessages(final Users user) {
+		final String hqlString = 
+				"select distinct m "
+				+ "from Messages as m "
+				+ "where m.sender=:user " 
+				+ "and m.parent is not null "
+				+ "and m.messagetype=:messagetype";
+		final Query query = getQuery(hqlString);
+		query.setParameter("user", user);
+		query.setParameter("messagetype", MessageType.REPLY);
+		List<Messages> messages = query.getResultList();
+		return messages;
+	}
+	
+	
 
 	/**
 	 * {@inheritDoc}

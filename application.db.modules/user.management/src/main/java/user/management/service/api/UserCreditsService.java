@@ -1,6 +1,6 @@
-package flirt.and.date.hbm.service.api;
+package user.management.service.api;
 
-import flirt.and.date.hbm.model.UserCredits;
+import user.management.model.UserCredits;
 import hbm.service.jpa.BusinessService;
 
 public interface UserCreditsService extends BusinessService<UserCredits, Integer>{

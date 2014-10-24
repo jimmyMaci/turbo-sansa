@@ -26,7 +26,8 @@
 		<class>user.management.model.Roles</class>
 		<class>user.management.model.RuleViolations</class>
 		<class>user.management.model.UserData</class>
-		<class>user.management.model.Users</class>
+		<class>user.management.model.Users</class>		
+		<class>user.management.model.UserCredits</class>
 		
 		<class>message.system.model.MessageRecipients</class>
 		<class>message.system.model.Messages</class>
@@ -45,8 +46,6 @@
 		<class>events.system.model.Topics</class>
 		<class>events.system.model.UserContactsAllowedContactmethods</class>
 		<class>events.system.model.Userevents</class>
-		
-		<class>flirt.and.date.hbm.model.UserCredits</class>
 
 		<properties>
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />

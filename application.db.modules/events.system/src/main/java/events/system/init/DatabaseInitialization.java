@@ -15,7 +15,12 @@ public class DatabaseInitialization extends AbstractDatabaseInitialization {
 
 	@Override
 	protected List<File> getScriptFiles() {
-		List<File> scriptFiles = new ArrayList<>();
+		final File insertsDir = getInsertDir();
+		List<File> scriptFiles = new ArrayList<>();		
+		scriptFiles.add(new File(insertsDir, "insertRoles.sql"));
+		scriptFiles.add(new File(insertsDir, "insertIntoTopics.sql"));
+		scriptFiles.add(new File(insertsDir, "insertCountries.sql"));
+		scriptFiles.add(new File(insertsDir, "insertAllFederalStates.sql"));
 		return scriptFiles;
 	}
 

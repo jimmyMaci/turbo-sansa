@@ -51,6 +51,11 @@ public class ResourcesBusinessService extends AbstractBusinessService<Resources,
 		return ListUtils.getFirst(Resources);		
 	}
 	
+	public Resources findByDescription(String description) {
+		final List<Resources> Resources = find(description, null, null, null);
+		return ListUtils.getFirst(Resources);		
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Resources> find(String description, String filename,
 			String filesize, String contentType) {

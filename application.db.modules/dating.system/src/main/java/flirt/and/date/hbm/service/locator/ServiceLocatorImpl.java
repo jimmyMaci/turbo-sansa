@@ -19,6 +19,7 @@ import user.management.service.api.ResetPasswordsService;
 import user.management.service.api.RobinsonsService;
 import user.management.service.api.RolesService;
 import user.management.service.api.RuleViolationsService;
+import user.management.service.api.UserCreditsService;
 import user.management.service.api.UserDataService;
 import user.management.service.api.UserManagementService;
 import user.management.service.api.UsersService;
@@ -32,7 +33,6 @@ import flirt.and.date.hbm.service.api.ProfileNoticeService;
 import flirt.and.date.hbm.service.api.ProfileRatingsService;
 import flirt.and.date.hbm.service.api.ProfileVisitorsService;
 import flirt.and.date.hbm.service.api.SearchCriteriaService;
-import flirt.and.date.hbm.service.api.UserCreditsService;
 import flirt.and.date.hbm.service.api.UserProfileService;
 
 

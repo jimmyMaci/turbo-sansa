@@ -1,12 +1,13 @@
-package flirt.and.date.hbm.daos;
+package user.management.daos;
 
-import flirt.and.date.hbm.model.UserCredits;
 import hbm.dao.jpa.JpaEntityManagerDao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+
+import user.management.model.UserCredits;
 
 @Repository("userCreditsDao")
 public class UserCreditsDao extends JpaEntityManagerDao<UserCredits, Integer>{

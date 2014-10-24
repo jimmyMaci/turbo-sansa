@@ -9,6 +9,7 @@ import user.management.service.api.ResetPasswordsService;
 import user.management.service.api.RobinsonsService;
 import user.management.service.api.RolesService;
 import user.management.service.api.RuleViolationsService;
+import user.management.service.api.UserCreditsService;
 import user.management.service.api.UserDataService;
 import user.management.service.api.UserManagementService;
 import user.management.service.api.UsersService;
@@ -76,6 +77,13 @@ public interface ServiceLocator {
 	 * @return the rule violations service
 	 */
 	RuleViolationsService getRuleViolationsService();
+	
+	/**
+	 * Gets the user credits service.
+	 *
+	 * @return the user credits service
+	 */
+	UserCreditsService getUserCreditsService();
 
 	/**
 	 * Gets the user data service.
@@ -170,6 +178,13 @@ public interface ServiceLocator {
 	 *            the new rule violations service
 	 */
 	void setRuleViolationsService(RuleViolationsService ruleViolationsService);
+	
+	/**
+	 * Sets the user credits service.
+	 *
+	 * @param userCreditsService the user credits service
+	 */
+	void setUserCreditsService(UserCreditsService userCreditsService);
 
 	/**
 	 * Sets the user data service.

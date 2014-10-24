@@ -25,6 +25,7 @@
 		<class>user.management.model.RuleViolations</class>
 		<class>user.management.model.UserData</class>
 		<class>user.management.model.Users</class>
+		<class>user.management.model.UserCredits</class>
 		
 		<class>message.system.model.MessageRecipients</class>
 		<class>message.system.model.Messages</class>
@@ -37,7 +38,6 @@
 		<class>flirt.and.date.hbm.model.ProfileRatings</class>
 		<class>flirt.and.date.hbm.model.ProfileVisitors</class>
 		<class>flirt.and.date.hbm.model.SearchCriteria</class>
-		<class>flirt.and.date.hbm.model.UserCredits</class>
 		<class>flirt.and.date.hbm.model.UserProfile</class>
 
 		<properties>

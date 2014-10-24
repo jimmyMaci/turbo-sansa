@@ -6,7 +6,6 @@ import flirt.and.date.hbm.service.api.ProfileNoticeService;
 import flirt.and.date.hbm.service.api.ProfileRatingsService;
 import flirt.and.date.hbm.service.api.ProfileVisitorsService;
 import flirt.and.date.hbm.service.api.SearchCriteriaService;
-import flirt.and.date.hbm.service.api.UserCreditsService;
 import flirt.and.date.hbm.service.api.UserProfileService;
 
 /**
@@ -64,13 +63,6 @@ user.management.service.locator.ServiceLocator
 	SearchCriteriaService getSearchCriteriaService();
 
 	/**
-	 * Gets the user credits service.
-	 *
-	 * @return the user credits service
-	 */
-	UserCreditsService getUserCreditsService();
-
-	/**
 	 * Gets the user profile service.
 	 *
 	 * @return the user profile service
@@ -118,13 +110,6 @@ user.management.service.locator.ServiceLocator
 	 * @param searchCriteriaService the search criteria service
 	 */
 	void setSearchCriteriaService(SearchCriteriaService searchCriteriaService);
-	
-	/**
-	 * Sets the user credits service.
-	 *
-	 * @param userCreditsService the user credits service
-	 */
-	void setUserCreditsService(UserCreditsService userCreditsService);
 	
 	/**
 	 * Sets the user profile business service.
