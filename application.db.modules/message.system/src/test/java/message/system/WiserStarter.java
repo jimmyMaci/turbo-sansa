@@ -8,10 +8,11 @@ import org.subethamail.wiser.WiserMessage;
 
 public class WiserStarter {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws MessagingException {
 		Wiser wiser = new Wiser();
 
-		//wiser.setPort(2500); // Default is 25
+		wiser.setPort(2500); // Default is 25
 
 		wiser.start();
 

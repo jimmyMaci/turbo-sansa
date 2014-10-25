@@ -82,11 +82,11 @@ public class MessageModelConverter {
 	}
 	
 	public static Messages createMessage(InfoMessageModel model, Users sender, Date sentDate) {
-		// TODO set recipient...
+		// set recipient...
 //		String senderEmail = model.getApplicationSenderAddress(); 
-		String senderPersonal = model.getApplicationDomainName(); 
-		String recipientEmail = model.getRecipientEmailContact(); 
-		String recipientPersonal = model.getRecipientFullName(); 
+//		String senderPersonal = model.getApplicationDomainName(); 
+//		String recipientEmail = model.getRecipientEmailContact(); 
+//		String recipientPersonal = model.getRecipientFullName(); 
 		String subject = model.getMessageContentModel().getSubject(); 
 		String content = model.getMessageContentModel().getContent(); 
 		final Messages message = MessageSystemFactory.getInstance()
