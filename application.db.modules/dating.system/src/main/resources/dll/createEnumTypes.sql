@@ -10,8 +10,8 @@ CREATE TYPE figuretype AS ENUM (
 CREATE TYPE friendshiprequeststate AS ENUM (
 	'REFUSED', 'AWAITING', 'ACCEPTED'
 );
-create TYPE gendertype as enum (
-	'MALE', 'FEMALE', 'UNDEFINED'
+CREATE TYPE gendertype AS ENUM (
+	'MALE', 'FEMALE', 'INCORPORATION', 'UNDEFINED'
 );
 CREATE TYPE haircolortype AS ENUM (
 	'BLOND', 'BRAUN', 'SCHWARZ', 'ROT', 'GLATZE', 'OTHER'

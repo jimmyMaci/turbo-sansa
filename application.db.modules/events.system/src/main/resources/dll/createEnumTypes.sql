@@ -7,8 +7,8 @@ create type difficultyType as enum (
 create type eventlocationType as enum (
 	'INHOUSE', 'EVENTLOCATION'
 );
-create type genderType as enum (
-	'MALE', 'FEMALE', 'INCORPORATION'
+CREATE TYPE gendertype AS ENUM (
+	'MALE', 'FEMALE', 'INCORPORATION', 'UNDEFINED'
 );
 create type messageStateType as enum (
 	'SIGNED', 'CONTACTED', 'EXPELLED', 'UNREPLIED', 'DELETED'
