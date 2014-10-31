@@ -87,7 +87,7 @@ public class EventTemplate extends BaseEntity<Integer> implements Cloneable {
 	 * @return A Categories object (this.categories)
 	 */
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "categories_id", nullable = true, referencedColumnName = "id")
 	@Index(name = "IDX_CATEGORIES_ID")
 	@ForeignKey(name = "FK_EVENTS_CATEGORIES_ID")
