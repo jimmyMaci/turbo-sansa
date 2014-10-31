@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import user.management.model.Users;
+import user.management.service.api.UserDataService;
 import address.book.model.Addresses;
 import events.system.daos.EventLocationsDao;
 import events.system.enums.UsereventsRelationType;
@@ -35,6 +36,9 @@ public class EventLocationsBusinessService
 		implements EventLocationsService {
 
 	private static final long serialVersionUID = 1L;
+	/** The users business service. */
+	@Autowired
+	private UserDataService userDataService;
 
 	@Autowired
 	public void setEventLocationsDao(EventLocationsDao eventLocationsDao) {
@@ -76,7 +80,7 @@ public class EventLocationsBusinessService
 	@SuppressWarnings("unchecked")
 	public List<EventLocations> findEventLocations(
 			final Addresses userAddress) {
-		final String hqlString = "select ev from EventLocations ev where ev.userAddress=:userAddress";
+		final String hqlString = "select ev from EventLocations ev where ev.eventLocation=:userAddress";
 		final Query query = getQuery(hqlString);
 		query.setParameter("userAddress", userAddress);
 		final List<EventLocations> eventLocations = new ArrayList<EventLocations>(
@@ -117,14 +121,12 @@ public class EventLocationsBusinessService
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	public List<Addresses> findEventLocationsFromProvider(
 			final Users provider) {
-		String hqlString = "select ev.eventLocation from EventLocations ev where ev.event.provider=:provider";
-		final Query query = getQuery(hqlString);
-		query.setParameter("provider", provider);
-		final List<Addresses> userAdresses = new ArrayList<Addresses>(
-				new HashSet<Addresses>(query.getResultList()));
+//		String hqlString = "select ev.eventLocation from EventLocations ev where ev.event.provider=:provider";
+//		final Query query = getQuery(hqlString);
+//		query.setParameter("provider", provider);
+		final List<Addresses> userAdresses = new ArrayList<Addresses>(userDataService.get(provider.getUserData().getId()).getAddresses());
 		return userAdresses;
 	}
 

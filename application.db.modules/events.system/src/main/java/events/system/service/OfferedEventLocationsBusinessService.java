@@ -33,7 +33,7 @@ public class OfferedEventLocationsBusinessService
 	
 	@SuppressWarnings("unchecked")
 	public List<OfferedEventLocations> findOfferedEventLocationsFromUser(Users user){
-		String hqlString = "select distinct oel from OfferedEventLocations oel where oel.userAddress.user=:user";
+		String hqlString = "select distinct oel from OfferedEventLocations oel where oel.provider=:user";
 		final Query query = getQuery(hqlString);
 		query.setParameter("user", user);
 		final List<OfferedEventLocations> offeredEventLocations = query.getResultList();
@@ -48,13 +48,13 @@ public class OfferedEventLocationsBusinessService
 			sb.append(" where");
 		}
 		if(StringUtils.isNotEmpty(zipcode)) {
-			sb.append(" oel.userAddress.address.zipcode.zipcode=:zipcode");
+			sb.append(" oel.userAddress.zipcode.zipcode=:zipcode");
 		}
 		if(StringUtils.isNotEmpty(zipcode) && StringUtils.isNotEmpty(city)) {
 			sb.append(" or");
 		}
 		if(StringUtils.isNotEmpty(city)) {
-			sb.append(" oel.userAddress.address.zipcode.city=:city");
+			sb.append(" oel.userAddress.zipcode.city=:city");
 		}
 		final Query query = getQuery(sb.toString());
 		if(StringUtils.isNotEmpty(zipcode)) {
