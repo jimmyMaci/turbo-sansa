@@ -57,7 +57,7 @@ implements Cloneable {
 	 * 
 	 * @return A Messages object (this.message)
 	 */
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "message_id", nullable = true, referencedColumnName = "id")
 	@Index(name = "IDX_MESSAGE_RECIPIENTS_ID")
 	@ForeignKey(name = "FK_MESSAGE_RECIPIENTS_MESSAGE_ID")
