@@ -45,6 +45,9 @@ public class TopicTreeNode extends TreeNode<Topics> {
 	 */
 	@Override
 	public String toString() {
+		if(getDisplayValue() != null) {
+			return getDisplayValue();
+		}
 		return getValue().getName();
 	}
 
