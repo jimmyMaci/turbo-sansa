@@ -38,6 +38,9 @@ public class OfferedEventLocations extends BaseEntity<Integer> implements
 	private String offeredFromDescription;
 	/** A description of the support from this location. */
 	private String supportDescription;
+	
+	private Users provider;
+
 	/**
 	 * The Addresses attribute that references to the Entity class
 	 * {@UserAddresses}.
@@ -60,6 +63,19 @@ public class OfferedEventLocations extends BaseEntity<Integer> implements
 
 	public void setContactPerson(Users contactPerson) {
 		this.contactPerson = contactPerson;
+	}
+	
+
+	@ManyToOne
+	@JoinColumn(name = "provider_id", nullable = true, referencedColumnName = "id")
+	@Index(name = "IDX_OFFERED_EVENT_LOCATIONS_PROVIDER_ID")
+	@ForeignKey(name = "FK_OFFERED_EVENT_LOCATIONS_PROVIDER_ID")
+	public Users getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Users provider) {
+		this.provider = provider;
 	}
 
 	/**
