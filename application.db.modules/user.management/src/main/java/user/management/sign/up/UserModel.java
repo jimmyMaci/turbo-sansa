@@ -43,8 +43,19 @@ public class UserModel implements Serializable {
 
 	/** The telefon. */
 	private String telefon;
+
+	/** The fax. */
+	private String fax;
 	
 	private Addresses address;
+
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
 
 	public Addresses getAddress() {
 		return address;
