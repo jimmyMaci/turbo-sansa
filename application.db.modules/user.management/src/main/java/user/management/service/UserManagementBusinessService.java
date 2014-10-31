@@ -756,4 +756,13 @@ public class UserManagementBusinessService implements UserManagementService {
 		}
 		return userData;
 	}
+	
+	public UserData deleteAddress(Addresses address, final UserData ud ) {
+		UserData userData = userDataService.get(ud.getId());
+		if(userData.getAddresses().contains(address)) {
+			userData.getAddresses().remove(address);
+			userData = userDataService.merge(userData);
+		}
+		return userData;
+	}
 }

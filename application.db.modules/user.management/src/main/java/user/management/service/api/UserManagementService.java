@@ -406,4 +406,13 @@ public interface UserManagementService extends net.sourceforge.jaulp.auth.userma
 	 */
 	UserData deleteBlacklisted(Users blacklisted, final Integer userDataId);
 
+	/**
+	 * Deletes the given Addresses object from the given UserData object.
+	 *
+	 * @param address the Addresses object
+	 * @param ud the user data id
+	 * @return the UserData object.
+	 */
+	UserData deleteAddress(Addresses address, final UserData ud );
+
 }
