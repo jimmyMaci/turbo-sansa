@@ -23,6 +23,7 @@ alter table messages drop constraint FK_MESSAGES_SENDER;
 alter table messages drop constraint FK_MESSAGES_SENDER_EMAIL;
 alter table messages drop constraint FK_PARENT_MESSAGE_ID;
 alter table offered_event_locations drop constraint FK_OFFERED_EVENT_LOCATIONS_EVENT_LOCATION_DATA_ID;
+alter table offered_event_locations drop constraint FK_OFFERED_EVENT_LOCATIONS_PROVIDER_ID;
 alter table offered_event_locations drop constraint FK_OFFERED_EVENT_LOCATIONS_CONTACT_PERSON_ID;
 alter table offered_event_locations drop constraint FK_OFFERED_EVENT_LOCATIONS_USER_ADDRESS_ID;
 alter table profile_federalstates drop constraint FK_PROFILE_FEDERALSTATES_FEDERALSTATE_ID;

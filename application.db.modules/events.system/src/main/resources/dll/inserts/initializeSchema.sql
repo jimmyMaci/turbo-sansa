@@ -113,7 +113,7 @@ create table events (
         material bool,
         name varchar(64),
         price numeric(19, 2),
-        provider_id int4,
+        provider bytea,
         requirements varchar(21845),
         subscribermax int4,
         subscribermin int4,
@@ -168,6 +168,7 @@ create table offered_event_locations (
         support_description varchar(21845),
         user_id int4,
         event_location_data_id int4,
+        provider_id int4,
         user_address_id int4,
         primary key (id)
     );
@@ -354,8 +355,8 @@ create type difficultyType as enum (
 create type eventlocationType as enum (
 	'INHOUSE', 'EVENTLOCATION'
 );
-create type genderType as enum (
-	'MALE', 'FEMALE', 'INCORPORATION'
+CREATE TYPE gendertype AS ENUM (
+	'MALE', 'FEMALE', 'INCORPORATION', 'UNDEFINED'
 );
 create type messageStateType as enum (
 	'SIGNED', 'CONTACTED', 'EXPELLED', 'UNREPLIED', 'DELETED'
@@ -444,8 +445,10 @@ alter table messages add constraint FK_MESSAGES_SENDER_EMAIL foreign key (sender
 alter table messages add constraint FK_PARENT_MESSAGE_ID foreign key (parent) references messages;
 create index IDX_OFFERED_EVENT_LOCATIONS_USER_ADDRESS_ID on offered_event_locations (user_address_id);
 create index IDX_OFFERED_EVENT_LOCATIONS_CONTACT_PERSON_ID on offered_event_locations (user_id);
+create index IDX_OFFERED_EVENT_LOCATIONS_PROVIDER_ID on offered_event_locations (provider_id);
 create index IDX_EVENT_LOCATION_DATA_ID on offered_event_locations (event_location_data_id);
 alter table offered_event_locations add constraint FK_OFFERED_EVENT_LOCATIONS_EVENT_LOCATION_DATA_ID foreign key (event_location_data_id) references event_location_data;
+alter table offered_event_locations add constraint FK_OFFERED_EVENT_LOCATIONS_PROVIDER_ID foreign key (provider_id) references users;
 alter table offered_event_locations add constraint FK_OFFERED_EVENT_LOCATIONS_CONTACT_PERSON_ID foreign key (user_id) references users;
 alter table offered_event_locations add constraint FK_OFFERED_EVENT_LOCATIONS_USER_ADDRESS_ID foreign key (user_address_id) references addresses;
 create index IDX_PROFILE_FEDERALSTATES_USER_ID on profile_federalstates (user_id);
