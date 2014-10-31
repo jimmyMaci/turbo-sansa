@@ -646,9 +646,28 @@ public class UserManagementBusinessService implements UserManagementService {
 			result.setValidationErrors(validationErrors);
 			return result;
 		}
-
+		final Set<Contactmethods> contacts = new HashSet<Contactmethods>();
 		final Contactmethods emailContact = UserManagementFactory.getInstance()
 				.newContactmethods(Contactmethod.EMAIL, email);
+		contacts.add(emailContact);
+		if(userModel.getFax()!=null && !userModel.getFax().isEmpty()) {
+			final Contactmethods faxContact = UserManagementFactory.getInstance()
+					.newContactmethods(
+					Contactmethod.FAX, userModel.getFax());
+			contacts.add(faxContact);
+		}
+		if(userModel.getTelefon()!=null && !userModel.getTelefon().isEmpty()) {
+			final Contactmethods telefonContact = UserManagementFactory.getInstance()
+					.newContactmethods(Contactmethod.TELEFON,
+							userModel.getTelefon());
+			contacts.add(telefonContact);
+		}
+		if(userModel.getMobile()!=null && !userModel.getMobile().isEmpty()) {
+			final Contactmethods mobileContact = UserManagementFactory.getInstance()
+					.newContactmethods(Contactmethod.MOBILE,
+							userModel.getMobile());
+			contacts.add(mobileContact);
+		}
 
 		Users newUser = null;
 
@@ -673,8 +692,6 @@ public class UserManagementBusinessService implements UserManagementService {
 				userModel.getFirstname(), userModel.getGender(),
 				userModel.getIpAddress(), userModel.getLastname(), locale);
 
-		final Set<Contactmethods> contacts = new HashSet<Contactmethods>();
-		contacts.add(emailContact);
 		final Set<Contactmethods> mergedContacts = new HashSet<Contactmethods>();
 		for (Contactmethods contactmethod : contacts) {
 			contactmethod = contactmethodsService.merge(contactmethod);
