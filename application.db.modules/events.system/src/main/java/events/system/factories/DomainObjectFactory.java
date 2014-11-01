@@ -255,7 +255,7 @@ public class DomainObjectFactory implements Serializable {
      * @param material the material
      * @param name the name
      * @param price the price
-     * @param providerId the provider id
+     * @param provider the provider
      * @param requirements the requirements
      * @param subscribermax the subscribermax
      * @param subscribermin the subscribermin

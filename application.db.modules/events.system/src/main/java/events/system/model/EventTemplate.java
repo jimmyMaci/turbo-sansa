@@ -340,10 +340,10 @@ public class EventTemplate extends BaseEntity<Integer> implements Cloneable {
 	}
 
 	/**
-	 * Set the value related to the column: providerId
+	 * Set the value related to the column: provider
 	 * 
-	 * @param providerId
-	 *            the providerId value you wish to set
+	 * @param provider
+	 *            the provider value you wish to set
 	 */
 	public void setProvider(final Users provider) {
 		this.provider = provider;

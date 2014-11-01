@@ -69,9 +69,11 @@ public class EventRatingsBusinessService
 	 */
 	@SuppressWarnings("unchecked")
 	public List<EventRatings> findRatedEvents(final Users provider) {
-		final String hqlString = "select er from EventRatings er where er.event.providerId=:providerId  and er.visibility=:visibility";
+		final String hqlString = "select er from EventRatings er "
+				+ "where er.event.provider=:provider "
+				+ "and er.visibility=:visibility";
 		final Query query = getQuery(hqlString);
-		query.setParameter("providerId", provider.getId());
+		query.setParameter("provider", provider);
 		query.setParameter("visibility", RatingVisibility.INVISIBLE);
 		List<EventRatings> eventRatings = query.getResultList();
 		return eventRatings;
