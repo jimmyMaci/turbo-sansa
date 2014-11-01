@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import net.sourceforge.jaulp.collections.ListUtils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +28,11 @@ public class EventRatingsBusinessService
 		implements EventRatingsService {
 
 	private static final long serialVersionUID = 1L;
+
+	@Autowired
+	public void setEventRatingsDao(EventRatingsDao eventRatingsDao) {
+		setDao(eventRatingsDao);
+	}
 
 	/**
 	 * {@inheritDoc}
