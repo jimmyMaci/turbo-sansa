@@ -29,7 +29,7 @@ public class UserManagementModelFactory implements Serializable {
 	private UserManagementModelFactory() {
 	}
 
-	public UserModel createUserModel(
+	public UserModel newUserModel(
 			String birthname,
 			Date dateOfBirth,
 			String firstname,
@@ -39,6 +39,7 @@ public class UserManagementModelFactory implements Serializable {
 			Locale locale,
 			String mobile,
 			String telefon,
+			String fax,
 			Addresses address) {
 		UserModel userModel = new UserModel();
 		userModel.setBirthname(birthname);
@@ -50,11 +51,12 @@ public class UserManagementModelFactory implements Serializable {
 		userModel.setLocale(locale);
 		userModel.setMobile(mobile);
 		userModel.setTelefon(telefon);
+		userModel.setFax(fax);
 		userModel.setAddress(address);
 		return userModel;
 	}
 	
-	public UsernameSignUpModel createUsernameSignupModel(
+	public UsernameSignUpModel newUsernameSignupModel(
 			String email, 
 			String pw, 
 			String repeatPw, 

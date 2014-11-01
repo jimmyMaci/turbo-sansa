@@ -58,7 +58,7 @@ public class UserManagementBusinessServiceTest extends AbstractTestNGSpringConte
 	public void testSignUpUser() {
 		SignUpUserResult result;
 		UserManagementModelFactory userManagementModelFactory = UserManagementModelFactory.getInstance();
-		UserModel userModel = userManagementModelFactory.createUserModel(
+		UserModel userModel = userManagementModelFactory.newUserModel(
 				"Knight",
 				CreateDateUtils.createDate(1974, 8, 28),
 				"Michael",
@@ -68,9 +68,10 @@ public class UserManagementBusinessServiceTest extends AbstractTestNGSpringConte
 				Locale.GERMAN,
 				"01721745676",
 				"032325444444",
+				"032325444445",
 				addressesService.get(30224)); // Ludwigsburg
 		
-		UsernameSignUpModel model = userManagementModelFactory.createUsernameSignupModel(
+		UsernameSignUpModel model = userManagementModelFactory.newUsernameSignupModel(
 				"michael.knight@gmail.com",
 				"xxx",
 				"xxx",
@@ -81,7 +82,7 @@ public class UserManagementBusinessServiceTest extends AbstractTestNGSpringConte
 		
 		result = userManagementService.signUpUser(model, roles, userModel);
 		
-		userModel = userManagementModelFactory.createUserModel(
+		userModel = userManagementModelFactory.newUserModel(
 				"Frankenstein",
 				CreateDateUtils.createDate(1974, 8, 28),
 				"Adolf",
@@ -91,9 +92,10 @@ public class UserManagementBusinessServiceTest extends AbstractTestNGSpringConte
 				Locale.GERMAN,
 				"01741762636",
 				"042327445445",
+				"042327445446",
 				addressesService.get(14178));//Stuttgart
 		
-		model = userManagementModelFactory.createUsernameSignupModel(
+		model = userManagementModelFactory.newUsernameSignupModel(
 				"adolf.frankenstein@gmail.com",
 				"xxx",
 				"xxx",
@@ -102,7 +104,7 @@ public class UserManagementBusinessServiceTest extends AbstractTestNGSpringConte
 		
 		result = userManagementService.signUpUser(model, roles, userModel);
 		
-		userModel = userManagementModelFactory.createUserModel(
+		userModel = userManagementModelFactory.newUserModel(
 				"Dean",
 				CreateDateUtils.createDate(1974, 8, 28),
 				"James",
@@ -112,9 +114,10 @@ public class UserManagementBusinessServiceTest extends AbstractTestNGSpringConte
 				Locale.GERMAN,
 				"01541662535",
 				"072327545348",
+				"072327545349",
 				addressesService.get(35448));// Worms
 		
-		model = userManagementModelFactory.createUsernameSignupModel(
+		model = userManagementModelFactory.newUsernameSignupModel(
 				"james.dean@gmail.com",
 				"xxx",
 				"xxx",
@@ -123,6 +126,7 @@ public class UserManagementBusinessServiceTest extends AbstractTestNGSpringConte
 		
 		result = userManagementService.signUpUser(model, roles, userModel);
 		System.out.println(result);
+		
 		
 	}
 

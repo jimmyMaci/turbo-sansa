@@ -47,6 +47,15 @@ public class ContactmethodsBusinessService extends AbstractBusinessService<Conta
 		if(contact != null && compare == null) {
 			return false;
 		}
+		if(contact.getContactvalue() == null && compare.getContactvalue() != null) {
+			return false;
+		}
+		if(contact.getContactvalue() == null && compare.getContactvalue() == null) {
+			return true;
+		}
+		if(contact.getContactvalue() != null && compare.getContactvalue() == null) {
+			return false;
+		}
 		return contact.getContactmethod().equals(compare.getContactmethod())
 				&& contact.getContactvalue().equals(compare.getContactvalue());
 	}

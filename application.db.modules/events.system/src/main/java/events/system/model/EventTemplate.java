@@ -254,7 +254,7 @@ public class EventTemplate extends BaseEntity<Integer> implements Cloneable {
 	 * 
 	 * @return A String object (this.locale)
 	 */
-	@Column(length = 3)
+	@Column(length = 64)
 	public String getLocale() {
 		return this.locale;
 	}

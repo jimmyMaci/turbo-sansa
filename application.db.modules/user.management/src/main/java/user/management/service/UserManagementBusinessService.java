@@ -508,7 +508,9 @@ public class UserManagementBusinessService implements UserManagementService {
 		final Contactmethods emailContact = UserManagementFactory.getInstance()
 				.newContactmethods(Contactmethod.EMAIL, email);
 		final Contactmethods emailContactInDB = findEmailContactFromUser(user);
-
+		if(emailContactInDB == null) {
+			return emailContact;
+		}
 		if (!contactmethodsService.compare(emailContact, emailContactInDB)) {
 			if (existsUserWithEmail(email)) {
 				throw new EmailAlreadyExistsException("User with email "
@@ -517,7 +519,7 @@ public class UserManagementBusinessService implements UserManagementService {
 			emailContactInDB.setContactvalue(emailContact.getContactvalue());
 			return emailContactInDB;
 		}
-		return null;
+		return emailContactInDB;
 	}
 
 	/**
@@ -574,11 +576,13 @@ public class UserManagementBusinessService implements UserManagementService {
 		final Contactmethods newContactMethod = UserManagementFactory
 				.getInstance().newContactmethods(contactmethodType,
 						contactmethodValue);
-		if (!contactmethodsService.compare(newContactMethod, contactmethod)) {
-			contactmethod.setContactvalue(contactmethodValue);
-			return contactmethod;
-		}
-		return null;
+		if(contactmethod != null) {
+			if (!contactmethodsService.compare(newContactMethod, contactmethod)) {
+				contactmethod.setContactvalue(contactmethodValue);
+				return contactmethod;
+			}			
+		} 
+		return newContactMethod;
 	}
 
 	/**
@@ -781,5 +785,14 @@ public class UserManagementBusinessService implements UserManagementService {
 			userData = userDataService.merge(userData);
 		}
 		return userData;
+	}
+	
+	public Users addUserContact(Users user, Users contact) {
+		UserData userData = getUserDataService().get(user.getUserData().getId());
+		userData.getUserContacts().add(contact);
+		userData = getUserDataService().merge(userData);
+		user.setUserData(userData);
+		user = usersService.merge(user);
+		return user;
 	}
 }

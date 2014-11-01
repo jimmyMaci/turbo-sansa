@@ -6,7 +6,6 @@
 	<persistence-unit name="usermanagement"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-
 		<class>address.book.model.Addresses</class>
 		<class>address.book.model.Countries</class>
 		<class>address.book.model.Federalstates</class>
@@ -15,7 +14,6 @@
 		<class>resource.system.model.Resources</class>
 		
 		<class>user.management.model.Attributes</class>
-		<class>user.management.model.BaseAttributesEntity</class>
 		<class>user.management.model.Contactmethods</class>
 		<class>user.management.model.Permissions</class>
 		<class>user.management.model.Recommendations</class>
@@ -25,7 +23,8 @@
 		<class>user.management.model.Roles</class>
 		<class>user.management.model.RuleViolations</class>
 		<class>user.management.model.UserData</class>
-		<class>user.management.model.Users</class>
+		<class>user.management.model.Users</class>		
+		<class>user.management.model.UserCredits</class>
 
 		<properties>
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />

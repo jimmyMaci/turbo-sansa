@@ -114,7 +114,7 @@ public class MessagesBusinessServiceTest extends AbstractTestNGSpringContextTest
 	public Users getUser(String firstname, String lastname, String email, String username) {
 	
 		UserManagementModelFactory userManagementModelFactory = UserManagementModelFactory.getInstance();
-		UserModel userModel = userManagementModelFactory.createUserModel(
+		UserModel userModel = userManagementModelFactory.newUserModel(
 				lastname,
 				CreateDateUtils.createDate(1974, 8, 28),
 				firstname,
@@ -124,9 +124,10 @@ public class MessagesBusinessServiceTest extends AbstractTestNGSpringContextTest
 				Locale.GERMAN,
 				"01721745676",
 				"032325444444",
+				"032325444445",
 				addressesService.get(30224)); // Ludwigsburg
 		
-		UsernameSignUpModel usernameSignUpModel = userManagementModelFactory.createUsernameSignupModel(
+		UsernameSignUpModel usernameSignUpModel = userManagementModelFactory.newUsernameSignupModel(
 				email,
 				"xxx",
 				"xxx",

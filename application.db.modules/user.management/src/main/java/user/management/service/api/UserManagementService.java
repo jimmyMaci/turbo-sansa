@@ -289,7 +289,7 @@ public interface UserManagementService extends net.sourceforge.jaulp.auth.userma
 
 	/**
 	 * Update email from the given user if the email has changed and return the
-	 * new contactMethod object or null if nothing changed. Consider to check if
+	 * new contactMethod object or the contactMethod that is persist in database. Consider to check if
 	 * the email already exists before you call this method otherwise an
 	 * exception is thrown.
 	 * 
@@ -414,5 +414,7 @@ public interface UserManagementService extends net.sourceforge.jaulp.auth.userma
 	 * @return the UserData object.
 	 */
 	UserData deleteAddress(Addresses address, final UserData ud );
+	
+	Users addUserContact(Users user, Users contact);
 
 }
